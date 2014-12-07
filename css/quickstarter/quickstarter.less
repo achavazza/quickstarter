@@ -1,0 +1,210 @@
+//
+// Quickstarter V3
+// Copyright 2014, Alejandro Chavazza
+// http://www.quickstarter.com.ar
+// Quickstarter is free, libre and public domain see more on http://unlicense.org/
+// 13/05/2014
+//
+
+// Table of Contents
+// ======================================================================================================
+// #Init- Setup
+// #Imports
+
+
+// #Init - Setup
+// ================================
+
+// Can touch this!
+
+// Type
+// -------------------------------- 
+@baseFontFamily: "Segoe UI", Segoe, Candara, Frutiger, "Frutiger Linotype", Helvetica, Arial, sans-serif;
+
+@baseFontSize  : 14px;
+
+@h1FontSize    : 2em  ;
+@h2FontSize    : 1.8em;
+@h3FontSize    : 1.4em;
+@h4FontSize    : 1.2em;
+@h5FontSize    : 1em  ;
+@h6FontSize    : 0.8em;
+
+//@subFontSize   : 0.8em;
+
+// Margins
+// -------------------------------- 
+@hSpacing      : 0.2em;  //headline separation;
+@pSpacing      : 1em;    //paragraph separation;
+
+// Colors
+// -------------------------------- 
+
+@baseFontColor  : #333;    //grey
+@subFontColor   : #999;    //lightgrey
+@altFontColor   : #fff;    //white
+@linkFontColor  : #0063ff; //blue
+
+@brandDefault   : #ecf0f1; //grey
+@brandDanger    : #c0392b; //red
+@brandWarning   : #f39c12; //yellow
+@brandInfo      : #1abc9c; //cyan
+@brandSuccess   : #27ae60; //green
+@brandPrimary   : #3498db; //blue
+@brandInverse   : #2c3e50; //black
+
+@inputDangerBorder  : @brandDanger;  //red
+@inputWarningBorder : @brandWarning; //yellow
+@inputSuccessBorder : @brandInfo;    //green
+@inputInfoBorder    : @brandSuccess; //cyan
+@inputPrimaryBorder : @brandPrimary; //blue
+@inputInverseBorder : @brandInverse; //black
+
+@messageBase    : lighten(@brandDefault ,40%); //grey
+@messageDanger  : lighten(@brandDanger  ,40%); //red
+@messageWarning : lighten(@brandWarning ,40%); //yellow
+@messageInfo    : lighten(@brandInfo    ,40%); //cyan
+@messageSuccess : lighten(@brandSuccess ,40%); //green
+@messagePrimary : lighten(@brandPrimary ,40%); //blue
+@messageInverse : lighten(@brandInverse ,40%); //black
+
+
+//
+// Global Element variables
+//
+
+@elemWidth   : 9em;       // 1
+@elemSpan    : 1em;       // 2
+@elemPadding : 0.5em;     // 3
+@elemSpacing : 0.5em;     // 4
+@elemIndent  : 1em;       // 5
+@elemBlock   : 0.5em 1em; // 6
+
+
+
+// Lists
+// --------------------------------------------------
+// ┌ 5 ┬─────── 100% ────────┐
+//      ##################### ┐ 
+//                            4
+//                            ┘
+
+
+@listIndent    : @elemIndent;
+@listSpacing   : @elemSpacing;
+
+
+// Block
+// --------------------------------------------------
+// ┌─── 6 ────┐
+// ┌──────────┐ ┐ 
+// │  button  │  6
+// └──────────┘ ┘
+//
+// button separation
+
+@btnPadding      : @elemBlock;
+
+// Complex
+// -------------------------------- 
+// Sets the width of the label on .form-horizontal;
+// 1- @labelwidth 
+// 2- @labelSpan
+// 3- @inputPadding
+// 4- @inputSpacing
+//
+// ┌───── 1 ─────┬ 2 ┬───────── 100% ─────────┐
+//                   ┌────────────────────────┐ ┐ 
+//          Label    │ input                  │  3
+//                   └────────────────────────┘ ┤
+//                                               4
+//                                              ┘
+
+// Forms
+
+@labelWidth      : @elemWidth;
+@labelSpan       : @elemSpan;
+@inputPadding    : @elemPadding;
+@inputSpacing    : @elemSpacing;
+
+
+// Table
+// -------------------------------- 
+@tableBorder   : 1px solid #666;
+@tablePadding  : @elemPadding;
+
+// Media
+// -------------------------------- 
+@mediaSpan       : @elemSpan;
+
+// Definition lists
+// -------------------------------- 
+@defWidth        : @elemWidth;
+@defSpan         : @elemSpan;
+@defSpacing      : @elemSpacing;
+
+
+// Layout
+// ================================ 
+@gutter     : 10px;
+
+
+@namespaces : triad, quad;
+@grids      : 3    , 4;
+
+// IMPORTANT!
+// Less than portrait will be consider mobile (layout fluid)
+// @screenMobile: < 768px  =  @layoutMobile: auto;
+// -
+// To disable set width to false
+// e.g.: @screenLargeDevice : false;
+
+@screenSmallDevice   : 768px; 
+@screenMediumDevice  : 1024px;
+@screenLargeDevice   : 1240px;
+
+@layoutSmallDevice   : 700px;
+@layoutMediumDevice  : 940px;
+@layoutLargeDevice   : 1180px;
+
+
+
+// Imports
+// ================================
+
+/*! Quickstarter V3.0 LESS
+  - mixins      //   Required mixins, useful stuff here
+  - normalize   //   normalize for browsers
+  - toolbox     //   basic tools (look here for help)
+  - flush       // * flush styles useful for align items in a row 
+  - media       // * media object
+  - responsive  // * responsive sheet
+  - buttons     // * basic button styling
+  - forms       // * forms, inputs and stuff
+  - box         // * basic boxes for containers, panels and stuff
+
+  - base        // * basic fonts, type, lists, etc.
+
+  * - You can disable this
+
+  ======================
+  */
+
+  @import "lib/mixins";
+  @import "lib/normalize";
+  @import "lib/toolbox";
+  @import "lib/flush";
+  @import "lib/media";
+  @import "lib/responsive";
+  @import "lib/buttons";
+  @import "lib/forms";
+  @import "lib/box";
+
+  @import "theme/base";
+  @import "theme/tabs";
+
+/*!
+  ====================== */
+
+  // your stuff goes here
+  // @import "lib/theme";

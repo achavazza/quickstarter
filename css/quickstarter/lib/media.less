@@ -1,0 +1,34 @@
+.media,
+.bd {
+	overflow:hidden;
+	_overflow:visible;
+	zoom:1;
+}
+.media{
+	.img {
+		float:left;
+		margin-right: @mediaSpan;
+
+		img{
+			display:block;
+			width: 100%;
+			height: auto;
+		}
+	}
+	&-right{
+		.img {
+			float:right;
+			margin-left: @mediaSpan;
+			margin-right: 0;
+		}
+	}
+}
+
+.flag {
+  display: table;
+  .img,
+  .bd {
+    display: table-cell;
+    vertical-align: middle;
+  }
+}

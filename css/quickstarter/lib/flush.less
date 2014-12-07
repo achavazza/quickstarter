@@ -1,0 +1,26 @@
+.flush > *{
+  display: inline-block !important;
+  width: auto !important;
+  vertical-align: middle !important;
+  *display: inline !important; //ie7
+}
+.flush-fit{
+  display: table;
+  width: 100%;
+  & > *{
+    display: table-cell;
+    vertical-align: middle;
+  }
+}
+.flush-fit > .flush-row{
+  display: table-row;
+  & > *{
+  display: table-cell;
+  vertical-align: middle;
+  }
+}
+
+.stack > *{
+  display: block !important;
+  width: 100% !important;
+}

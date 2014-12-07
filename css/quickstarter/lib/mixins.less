@@ -1,0 +1,171 @@
+// Table of Contents
+// ======================================================================================================
+// # For
+// # Constructor mixin
+// # Mixins
+
+
+// #For
+// ================================ 
+
+.for(@i, @n) {.-each(@i)}
+.for(@n)     when (isnumber(@n)) {.for(1, @n)}
+.for(@i, @n) when not (@i = @n)  {
+    .for((@i + (@n - @i) / abs(@n - @i)), @n);
+}
+
+.for(@array)   when (default()) {.for-impl_(length(@array))}
+.for-impl_(@i) when (@i > 1)    {.for-impl_((@i - 1))}
+.for-impl_(@i) when (@i > 0)    {.-each(extract(@array, @i))}
+
+// #Constructor
+// ================================ 
+
+
+//@array: cols 3, cola 4;
+
+/*.__builder(@iterator:1) when(@iterator <= length(@array)) {
+
+  @name  : extract(extract(@array, @iterator),1);
+  @value : extract(extract(@array, @iterator),2);
+
+  .__constructor(@name, @value);
+
+  .__builder((@iterator + 1));
+}
+.__builder();*/
+
+/*#pepe{
+  .cicle() when (length(@array) > 1){
+    @name:  extract(@array, 1);
+    @unit:  extract(@array, 2);
+    .__constructor(@name, @unit);
+  }
+  .cicle() when (length(@array) > 1){
+    .for(@array); .-each(@value) {
+        //@val: length(@value);
+        @name:  extract(@value, 1);
+        @unit:  extract(@value, 2);
+        .__constructor(@name, @unit);
+    }
+  }
+  .cicle();
+} */
+
+
+.__constructor (@qUnit, @t){
+    @i: @t;
+    .for(@t); .-each(@i){
+      .@{qUnit}-@{i}{ width: 100% * (@i / @t)}   
+    } 
+} 
+.__constructor (@qUnit, @t, @display) when (iskeyword(@display)){
+    @i: @t;
+    .for(@t); .-each(@i){
+      .@{qUnit}-@{i}-@{display}{ width: 100% * (@i / @t)}   
+    }  
+} 
+.__constructorProp (@qUnit, @t, @prop, @property){
+    @i: @t;
+    .for(@t); .-each(@i){
+      .@{prop}-@{i}[class*="@{qUnit}-"] {@{property}: 100% * (@i / @t)}
+    } 
+}
+.__constructorProp (@qUnit, @t, @prop, @property, @display) when (iskeyword(@display)){
+    @i: @t;
+    .for(@t); .-each(@i){
+      .@{prop}-@{i}-@{display}[class*="@{qUnit}-"] {@{property}: 100% * (@i / @t)}
+    }  
+}
+
+
+// #Mixins
+// ================================ 
+
+// Gradient generator
+// --------------------------------
+
+// thanks to http://lesselements.com
+//.gradient(@color: #F5F5F5, @start: #EEE, @stop: #FFF, @repeat: repeat-x) {
+.gradient(@start: #EEE, @stop: #FFF, @repeat: repeat-x) {
+  background-color: @start;
+  background-image: -webkit-gradient(linear,
+                     left bottom,
+                     left top,
+                     color-stop(0, @start),
+                     color-stop(1, @stop));
+
+  background-image: -webkit-linear-gradient(top,
+                     @start 0%,
+                     @stop 100%);
+
+  background-image: -moz-linear-gradient(center bottom,
+                     @start 0%,
+                     @stop 100%);
+
+  background-image: -ms-linear-gradient(bottom,
+                     @start,
+                     @stop);
+
+  background-image: -o-linear-gradient(@stop,
+                     @start);
+
+  background-image: linear-gradient(to bottom,
+                    @start 0%,
+                    @stop 100%);
+
+  background-repeat: @repeat;
+  //filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",@stop,@start));
+}
+
+// Box model
+// --------------------------------
+
+.box-model(@model: border-box){
+  -webkit-box-sizing: @model;
+     -moz-box-sizing: @model;
+      -ms-box-sizing: @model;
+       -o-box-sizing: @model;
+          box-sizing: @model;
+}
+
+// Transitions
+// --------------------------------
+
+.transition(@property, @duration:0s, @easing:linear, @delay:0s){
+  -webkit-transition: @duration @easing @delay;
+     -moz-transition: @duration @easing @delay;
+      -ms-transition: @duration @easing @delay;
+       -o-transition: @duration @easing @delay;
+          transition: @duration @easing @delay;
+}
+
+// User select
+// --------------------------------
+
+.user-select(@type: none){
+  -webkit-user-drag:   @type;
+  -webkit-user-select: @type;
+     -moz-user-select: @type;
+      -ms-user-select: @type;
+       -o-user-select: @type;
+          user-select: @type;
+}
+
+// Font color
+// --------------------------------
+.color(@bgcolor, @percent:55%){
+  color:contrast(@bgcolor, @baseFontColor, white, @percent);
+}
+
+// Font contrast
+// --------------------------------
+.contrast (@bgColor, @threshold: 55%) when (lightness(@bgColor) >= @threshold) {
+  color: @baseFontColor;
+  text-shadow: 0 1px 0 rgba(255,255,255,.2);
+}
+
+.contrast (@bgColor, @threshold: 55%) when (lightness(@bgColor) < @threshold) {
+  color: @altFontColor;
+  text-shadow: 0 -1px 0 rgba(0,0,0,.2);
+}

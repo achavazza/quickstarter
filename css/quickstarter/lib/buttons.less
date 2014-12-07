@@ -1,0 +1,94 @@
+
+// #Button
+// ======================================================================================================
+
+.btn {
+    
+    // Structure
+    display: inline-block;
+    zoom: 1;
+
+    font-family: inherit;
+    font-size: 100%;
+    line-height: normal;
+    white-space: nowrap;
+    vertical-align: baseline;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    
+    .user-select();
+
+    *display: inline;   // IE 6/7
+    *font-size: 90%;    // IE 6/7 - To reduce IE's oversized button text
+    *overflow: visible; // IE 6/7 - Because of IE's overly large left/right padding on buttons 
+
+
+    // Style
+    padding: @btnPadding;
+    //color: #333;
+    border: 1px solid #B7B7B7;
+    border-color: rgba(0, 0, 0, .1) 
+                  rgba(0, 0, 0, .1) 
+                  rgba(0, 0, 0, .25);
+
+    border-radius: 3px;
+    text-shadow: 0 1px 0 rgba(255,255,255,.5);
+    .gradient(lighten(@brandDefault ,5%),darken(@brandDefault ,5%));
+    .contrast(@brandDefault);
+    //.gradient(rgba(255,255,255,.1), rgba(0,0,0,.1));
+    //.gradient(#f5f5f5, rgba(255,255,255,.1), rgba(0,0,0,.1));
+
+    &-hover,
+    &:hover,
+    &:focus{
+        background-image: none;
+    }
+
+    // Firefox: Get rid of the inner focus border 
+    // &::-moz-focus-inner {
+    //     padding: 0;
+    //     border: 0;
+    // }
+
+    &:focus {
+        outline: 0;
+    }
+
+    &-active ,
+    &:active {
+        box-shadow: 0 0 0 1px rgba(0,0,0, 0.15) inset,
+                    0 0   6px rgba(0,0,0, 0.20) inset;
+    }
+
+    &[disabled],
+    &-disabled{
+
+        border: none;
+        background-image: none;
+        opacity: 0.40;
+        cursor: not-allowed;
+        box-shadow: none;    
+
+        &:hover,
+        &:focus,
+        &:active {
+            &:extend(.btn-disabled);
+        }
+    }
+
+    &-hidden {
+        display: none;
+    }
+
+    &-full { width: 100%; }
+}
+
+
+.form{
+    input[type="image"],
+    input[type="reset"],
+    input[type="submit"]{
+        &:extend(.btn);
+    }
+}

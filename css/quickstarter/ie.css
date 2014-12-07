@@ -1,0 +1,100 @@
+/*
+* Quickstarter V2.0
+* Copyright 2012, Alejandro Chavazza
+* www.quickstarter.com.ar
+* Quickstarter is free, libre and public domain see more on http://unlicense.org/
+* 04/11/2012
+*/
+
+.grid{
+  *width:960px !important!;
+}
+.grid .triad-1,
+.grid .triad-2,
+.grid .triad-3,
+.grid .quad-1,
+.grid .quad-2,
+.grid .quad-3,
+.grid .quad-4,
+.grid .pentad-1,
+.grid .pentad-2,
+.grid .pentad-3,
+.grid .pentad-4,
+.grid .pentad-5,
+.grid .hexad-1,
+.grid .hexad-2,
+.grid .hexad-3,
+.grid .hexad-4,
+.grid .hexad-5,
+.grid .hexad-6,
+.border-box{
+	/* thanks to Schepp - https://github.com/Schepp/box-sizing-polyfill */
+	/* this url must be relative to the html content, better with absolute path */
+    *behavior: url(/css/boxsizing.htc);
+}
+
+/*reseting visible - invisible */
+.invisible-desktop,
+.invisible-landscape,
+.invisible-portrait,
+.invisible-mobile,
+.visible-desktop,
+.visible-landscape,
+.visible-portrait,
+.visible-mobile {
+  *display: none !important;
+}
+.invisible-desktop,
+.invisible-portrait,
+.invisible-mobile,
+.visible-landscape{
+  *display: block !important;
+}
+.debug .triad-1,
+.debug .triad-2,
+.debug .triad-3,
+.debug .quad-1,
+.debug .quad-2,
+.debug .quad-3,
+.debug .quad-4,
+.debug .pentad-1,
+.debug .pentad-2,
+.debug .pentad-3,
+.debug .pentad-4,
+.debug .pentad-5,
+.debug .hexad-1,
+.debug .hexad-2,
+.debug .hexad-3,
+.debug .hexad-4,
+.debug .hexad-5,
+.debug .hexad-6{
+	*background: #FFCECE;
+}
+.debug .row{
+	*background: #E5E5FF;
+}
+
+* { *zoom:1  !important!; }
+
+.form label,
+.form legend{
+	display: block !important;
+	width: auto !important;
+	text-align: left !important;
+}
+.form legend{
+	position: static;
+	left: 0;
+}
+.form .submit,
+.form fieldset{
+	margin-left: 0 !important;
+}
+.form *{
+	display: inline;
+}
+
+.flush *{
+	/*display: inline-block;*/
+	display: inline;
+}

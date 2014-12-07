@@ -1,0 +1,57 @@
+
+// Clearfix
+// ==========================================================================
+
+.row:after,
+.row-fix:after,
+.input:after,
+.field:after,
+.clearfix:after {
+  clear:both;
+  content:' ';
+  display:block;
+  font-size:0;
+  line-height:0;
+  visibility:hidden;
+  width:0;
+  height:0;
+}
+* html .row,
+* html .row-fix,
+* html .input,
+* html .field,
+* html .clearfix,
+*:first-child+html .row,
+*:first-child+html .row-fix,
+*:first-child+html .input,
+*:first-child+html .field,
+*:first-child+html .clearfix {
+  zoom:1;
+}
+
+// Toolbox
+// ==========================================================================
+
+.float-left    {float: left !important;}
+.float-right   {float: right !important;}
+.float-none    {float:none !important;}
+.overflow      {overflow:hidden !important;}
+.clear         {clear:none !important;}
+.hide          {display: none !important;}
+.show          {display: block !important;}
+.relative      {position: relative !important;}
+.align-left    {text-align: left !important;}
+.align-center  {text-align: center !important;}
+.align-right   {text-align: right !important;}
+.align-top     {vertical-align: top !important;}
+.align-middle  {vertical-align: middle !important;}
+.align-bottom  {vertical-align: bottom !important;}
+.uppercase     {text-transform: uppercase !important;}
+.normalcase    {text-transform: none !important;}
+.lowercase     {text-transform: lowercase !important;}
+.single-line   {white-space:nowrap !important;}
+.text-overflow {overflow: hidden !important;
+                text-overflow: ellipsis !important;}
+
+//  Img or video fit
+.fit-width {width: 100%}

@@ -1,0 +1,309 @@
+// Table of Contents
+// ======================================================================================================
+//     #Init
+//     #Desktop (1240px)
+//         #Desktop Visible / Invisible
+// 
+//     #Landscape (1000px > < 1240px)
+//         #Landscape Mutate
+//         #Landscape Visible / Invisible
+//         #Debug
+// 
+//     #Portrait  (768px > < 1000px)
+//         #Portrait Mutate
+//         #Portrait Visible / Invisible
+//         #Debug
+// 
+//     #Mobile  (> 768px)
+//         #Mobile Reset
+//         #Mobile Mutate
+//         #Mobile Visible / Invisible
+//         #Debug
+
+// #Mobile
+
+.grid { 
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+
+// #Mobile Mutate - change and adapt cols
+// ======================================================================================================
+// since every col / triad mutates to 100% we dont have mutations
+
+.visible-only-sm    ,
+.visible-only-md    ,
+.visible-only-lg    ,
+.invisible-only     { display: none !important;  }
+
+.invisible-only-sm  ,
+.invisible-only-md  ,
+.invisible-only-lg  ,
+.visible-only       { display: block !important;  }
+
+.visible-sm     ,
+.visible-md     ,
+.visible-lg     ,
+.invisible      { display: none !important;  }
+
+.visible        { display: block !important; }
+
+// #Debug
+// ======================================================================================================
+.debug{
+
+    &.grid{box-shadow: 0 0 0 10px rgba(255,0,0,0.2);}
+
+    .row {
+        background: rgba(0, 0, 255, 0.1) !important;
+        //box-shadow: 0 0 transparent , 
+        //            0 0 transparent !important;
+    }
+    [class*="triad"] ,
+    [class*="quad"]  {
+        background: rgba(255,0,0,0.1) !important; 
+        //box-shadow: 0 0 transparent , 
+        //            0 0 transparent !important;
+    }
+}
+
+
+// #Init
+//.responsive-sm() when (isnumber(@screenSmallDevice)){
+@media screen and (min-width: @screenSmallDevice){
+    // #Grid - Container
+    // ======================================================================================================
+
+    .grid {
+        margin-left: auto;
+        margin-right: auto;
+
+        // if doesn't have @media support
+        //width: @layoutMediumDevice;
+    }
+    .grid-fluid{
+        margin-left: @gutter  !important;
+        margin-right: @gutter !important;
+        width: auto           !important;
+    }
+    .grid-left  { margin-left:  @gutter !important; }
+    .grid-right { margin-right: @gutter !important; }
+
+    .grid-snap .row ,
+    .grid .row-snap {
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .grid-snap  [class*="triad-"] ,
+    .grid-snap  [class*="quad-"]  ,
+    .row-snap > [class*="triad-"] ,
+    .row-snap > [class*="quad-"]  {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    // #Row - no more .alpha or .omega, instead we have .row
+    // ======================================================================================================
+    .row {
+      margin-left:  -@gutter;
+      margin-right: -@gutter;
+      clear: both;
+    }
+    .row-centered > [class*="col-"]{
+      display: block;
+      float:   none;
+      margin: 0 auto !important;
+    }
+
+    // #Quads & Triads - Init
+    // ======================================================================================================
+    [class*="triad-"],[class*="quad-"]{
+        display: inline;
+        float: left;
+        padding-left:  @gutter;
+        padding-right: @gutter;
+        .box-model(border-box);
+    }
+
+    [class*="triad-"][class*="push"]  ,
+    [class*="triad-"][class*="pull"]  ,
+    [class*="quad-"][class*="push"]   ,
+    [class*="quad-"][class*="pull"]   {
+        position: relative
+    }
+    
+    .__constructor     (triad, 3);
+    .__constructorProp (triad, 3, prefix, margin-left );
+    .__constructorProp (triad, 3, suffix, margin-right);
+    .__constructorProp (triad, 3, push  , left        );
+    .__constructorProp (triad, 3, pull  , right       );
+
+    .__constructor     (quad,  4);
+    .__constructorProp (quad,  4, prefix, margin-left );
+    .__constructorProp (quad,  4, suffix, margin-right);
+    .__constructorProp (quad,  4, push  , left        );
+    .__constructorProp (quad,  4, pull  , right       );
+
+    .debug{
+        //&.grid{box-shadow: 0 0 0 10px rgba(255,255,0,0.2);}
+        .row {
+            background: rgba(0, 0, 255, 0.1) !important;
+            //box-shadow: @gutter 0 rgba(0, 0, 255, 0.2) inset, 
+            //           -@gutter 0 rgba(0, 0, 255, 0.2) inset  !important;
+        }
+        [class*="triad"] ,
+        [class*="quad"]  {
+            background: rgba(255,0,0,0.1) !important; 
+            box-shadow: @gutter 0 rgba(255, 0, 0, 0.2) inset, 
+                       -@gutter 0 rgba(255, 0, 0, 0.2) inset  !important;
+            background-clip: content-box !important;
+        }
+    }
+}
+//}
+//.responsive-sm();
+
+.responsive-sm() when (isnumber(@screenSmallDevice)){
+@media screen and (min-width: @screenSmallDevice){
+    
+    .grid { width: @layoutSmallDevice; }
+
+    .__constructor     (triad, 3, sm);
+    .__constructorProp (triad, 3, prefix, margin-left , sm);
+    .__constructorProp (triad, 3, suffix, margin-right, sm);
+    .__constructorProp (triad, 3, push  , left        , sm);
+    .__constructorProp (triad, 3, pull  , right       , sm);
+
+    .__constructor     (quad,  4, sm);
+    .__constructorProp (quad,  4, prefix, margin-left , sm);
+    .__constructorProp (quad,  4, suffix, margin-right, sm);
+    .__constructorProp (quad,  4, push  , left        , sm);
+    .__constructorProp (quad,  4, pull  , right       , sm);
+
+    // #Portrait Visible / Invisible - switch on off elements
+    // ======================================================================================================
+    .visible-only       ,
+    .visible-only-md    ,
+    .visible-only-lg    ,
+    .invisible-only-sm  { display: none !important;  }
+   
+    .invisible-only      ,
+    .invisible-only-md   ,
+    .invisible-only-lg   ,
+    .visible-only-sm    { display: block !important; }
+
+    .visible-md     ,
+    .visible-lg     ,
+    .invisible      ,
+    .invisible-sm   { display: none !important;  }
+
+    .visible        ,
+    .visible-sm     { display: block !important; }
+
+    // #Debug
+    // ======================================================================================================
+    .debug{
+        &.grid{box-shadow: 0 0 0 10px rgba(255,0,0,0.2);}
+    }
+}
+}
+.responsive-sm();
+
+.responsive-md() when (isnumber(@screenMediumDevice)){
+@media screen and (min-width: @screenMediumDevice){
+
+    .grid { width: @layoutMediumDevice; }
+
+    // #Landscape Mutate - change and adapt cols
+    // ======================================================================================================
+    .__constructor     (triad, 3, md);
+    .__constructorProp (triad, 3, prefix, margin-left , md);
+    .__constructorProp (triad, 3, suffix, margin-right, md);
+    .__constructorProp (triad, 3, push  , left        , md);
+    .__constructorProp (triad, 3, pull  , right       , md);
+
+    .__constructor     (quad,  4, md);
+    .__constructorProp (quad,  4, prefix, margin-left , md);
+    .__constructorProp (quad,  4, suffix, margin-right, md);
+    .__constructorProp (quad,  4, push  , left        , md);
+    .__constructorProp (quad,  4, pull  , right       , md);
+
+    // #Landscape Visible / Invisible - switch on off elements
+    // ======================================================================================================
+
+    .visible-only        ,
+    .visible-only-sm     ,
+    .visible-only-lg     ,
+    .invisible-only-md   { display: none !important;  }
+
+    .invisible-only      ,
+    .invisible-only-sm   ,
+    .invisible-only-lg   ,
+    .visible-only-md     { display: block !important; }
+
+    .visible-lg     ,
+    .invisible      ,
+    .invisible-sm   ,
+    .invisible-md   { display: none !important;  }
+
+    .visible        ,
+    .visible-sm     ,
+    .visible-md     { display: block !important; }
+
+    // #Debug
+    // ======================================================================================================
+    .debug{
+        &.grid{box-shadow: 0 0 0 10px rgba(255,255,0,0.2);}
+    }
+
+} 
+}
+.responsive-md();
+
+.responsive-lg() when (isnumber(@screenLargeDevice)){
+@media screen and (min-width: @screenLargeDevice) {
+
+    .grid{ width: @layoutLargeDevice; }
+
+    .__constructor     (triad, 3, lg);
+    .__constructorProp (triad, 3, prefix, margin-left , lg);
+    .__constructorProp (triad, 3, suffix, margin-right, lg);
+    .__constructorProp (triad, 3, push  , left        , lg);
+    .__constructorProp (triad, 3, pull  , right       , lg);
+
+    .__constructor     (quad,  4, lg);
+    .__constructorProp (quad,  4, prefix, margin-left , lg);
+    .__constructorProp (quad,  4, suffix, margin-right, lg);
+    .__constructorProp (quad,  4, push  , left        , lg);
+    .__constructorProp (quad,  4, pull  , right       , lg);
+
+    
+    // #Desktop Visible / Invisible - switch on off elements
+    // ======================================================================================================
+    .visible-only        ,
+    .visible-only-sm     ,
+    .visible-only-md     ,
+    .invisible-only-lg   { display: none !important;  }
+
+    .invisible-only      ,
+    .invisible-only-sm   ,
+    .invisible-only-md   ,
+    .visible-only-lg     { display: block !important; }
+
+    .invisible      ,
+    .invisible-sm   ,
+    .invisible-md   ,
+    .invisible-lg   { display: none !important;  }
+
+    .visible        ,
+    .visible-sm     ,
+    .visible-md     ,
+    .visible-lg     { display: block !important; }
+
+    .debug{
+        &.grid{box-shadow: 0 0 0 10px rgba(0,255,0,0.2);}
+    }
+}
+}
+.responsive-lg();
