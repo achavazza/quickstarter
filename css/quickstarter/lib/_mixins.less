@@ -1,8 +1,28 @@
 // Table of Contents
 // ======================================================================================================
+// # Clearfix
 // # For
 // # Constructor mixin
 // # Mixins
+
+// #Clearfix
+// ================================ 
+.clearfix(){
+    &:after{
+        clear:both;
+        content:' ';
+        display:block;
+        font-size:0;
+        line-height:0;
+        visibility:hidden;
+        width:0;
+        height:0; 
+    }
+    * html &,
+    *:first-child+html &{
+        zoom:1;
+    }
+}
 
 
 // #For
@@ -22,7 +42,7 @@
 // ================================ 
 
 
-//@array: cols 3, cola 4;
+//@array: cols 3, cols 4;
 
 /*.__builder(@iterator:1) when(@iterator <= length(@array)) {
 

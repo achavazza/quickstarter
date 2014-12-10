@@ -1,32 +1,12 @@
 
 // Clearfix
 // ==========================================================================
-
-.row:after,
-.row-fix:after,
-.input:after,
-.field:after,
-.clearfix:after {
-  clear:both;
-  content:' ';
-  display:block;
-  font-size:0;
-  line-height:0;
-  visibility:hidden;
-  width:0;
-  height:0;
-}
-* html .row,
-* html .row-fix,
-* html .input,
-* html .field,
-* html .clearfix,
-*:first-child+html .row,
-*:first-child+html .row-fix,
-*:first-child+html .input,
-*:first-child+html .field,
-*:first-child+html .clearfix {
-  zoom:1;
+.row,
+.row-fix,
+.input,
+.field,
+.clearfix{
+    .clearfix();
 }
 
 // Toolbox
