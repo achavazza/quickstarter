@@ -66,6 +66,15 @@ preffix & suffix
 ```
 mutate & visible
 
+prefixes
+none : by default is mobile
+-sm  : small  : tablet
+-md  : medium : tablet landscape, old monitors
+-lg  : large  : desktop
+
+prefixes go from mobile to large
+none > -sm > -md > -lg
+
 ```
 <div class="grid">
   <div class="row">
