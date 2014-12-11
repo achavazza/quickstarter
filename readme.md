@@ -52,6 +52,34 @@ or
   </div>
 </div>
 ```
+preffix & suffix
+
+```
+<div class="grid">
+  <div class="row">
+    <div class="quad-1 prefix-3">...</div>
+  </div>
+  <div class="row">
+    <div class="triad-1 suffix-2">...</div>
+  </div>
+</div>
+```
+mutate & visible
+
+```
+<div class="grid">
+  <div class="row">
+    <div class="quad-4 quad-2-md">...</div>
+    <div class="quad-4 quad-2-md">...</div>
+  </div>
+  <div class="row">
+    <div class="quad-1 invisible-md">...</div>
+    <div class="quad-1 visible-md">...</div>
+    <div class="quad-1 invisible-only-md">...</div>
+    <div class="quad-1 visible-only-md">...</div>
+  </div>
+</div>
+```
 
 
 ##Twitter account
