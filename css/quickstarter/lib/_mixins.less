@@ -42,37 +42,6 @@
 // ================================ 
 
 
-//@array: cols 3, cols 4;
-
-/*.__builder(@iterator:1) when(@iterator <= length(@array)) {
-
-  @name  : extract(extract(@array, @iterator),1);
-  @value : extract(extract(@array, @iterator),2);
-
-  .__constructor(@name, @value);
-
-  .__builder((@iterator + 1));
-}
-.__builder();*/
-
-/*#pepe{
-  .cicle() when (length(@array) > 1){
-    @name:  extract(@array, 1);
-    @unit:  extract(@array, 2);
-    .__constructor(@name, @unit);
-  }
-  .cicle() when (length(@array) > 1){
-    .for(@array); .-each(@value) {
-        //@val: length(@value);
-        @name:  extract(@value, 1);
-        @unit:  extract(@value, 2);
-        .__constructor(@name, @unit);
-    }
-  }
-  .cicle();
-} */
-
-
 .__constructor (@qUnit, @t){
     @i: @t;
     .for(@t); .-each(@i){
@@ -97,6 +66,128 @@
       .@{prop}-@{i}-@{display}[class*="@{qUnit}-"] {@{property}: 100% * (@i / @t)}
     }  
 }
+
+.__generateGrid(@grids) {
+    .for(@grids);
+    .-each(@item) {
+        @name: e(replace(@item, ':(.*)', ''));
+        @value: replace(@item, '^[^:]*:', '');
+        @number : ~`parseInt(@{value})`;
+
+        .__constructor     (@name, @number);
+        .__constructorProp (@name, @number, prefix, margin-left );
+        .__constructorProp (@name, @number, suffix, margin-right);
+        .__constructorProp (@name, @number, push  , left        );
+        .__constructorProp (@name, @number, pull  , right       );
+    }
+}
+
+.__generateGridResponsive(@grids, @device) {
+    .for(@grids);
+    .-each(@item) {
+        @name: e(replace(@item, ':(.*)', ''));
+        @value: replace(@item, '^[^:]*:', '');
+        @number : ~`parseInt(@{value})`;
+
+        .__constructor     (@name, @number);
+        .__constructorProp (@name, @number, prefix, margin-left , @device);
+        .__constructorProp (@name, @number, suffix, margin-right, @device);
+        .__constructorProp (@name, @number, push  , left        , @device);
+        .__constructorProp (@name, @number, pull  , right       , @device);
+    }
+}
+
+.__generateSetupSnap(@grids) {
+    .for(@grids);
+    .-each(@item) {
+        @name: e(replace(@item, ':(.*)', ''));
+        [class*="@{name}-"]{
+          .grid-snap &,
+          .row-snap > &{
+            padding-left: 0;
+            padding-right: 0;
+          }
+        }
+    }
+}
+
+.output(@var,@mixin){
+  .setup(@var) when (@mixin = setup){
+    [class*="@{name}-"]{
+        display: inline;
+        float: left;
+        padding-left:  @gutter;
+        padding-right: @gutter;
+        .box-model(border-box);
+    }
+  }
+  .pushpull(@var) when (@mixin = pushpull){
+    [class*="@{name}-"][class*="push"],
+    [class*="@{name}-"][class*="pull"]{
+        position: relative;
+    }
+  }
+  .gridsnap(@var) when (@mixin = gridsnap){
+    [class*="@{name}-"]{
+      .grid-snap &,
+      .row-snap > &{
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+  }
+  .colcentered(@var) when (@mixin = colcentered){
+    [class*="@{name}-"]{
+      .grid-centered &,
+      .row-centered > &{
+        display: block;
+        float:   none;
+        margin: 0 auto !important;
+      }
+    }
+  }
+  .debug(@var) when (@mixin = debug){
+    [class*="@{name}-"]{
+      background: rgba(255,0,0,0.1) !important; 
+        //box-shadow: 0 0 transparent , 
+        //            0 0 transparent !important;
+    }
+  }
+  .debugsm(@var) when (@mixin = debugsm){
+    [class*="@{name}-"]{
+      background: rgba(255,0,0,0.1) !important; 
+      box-shadow: @gutter 0 rgba(255, 0, 0, 0.2) inset, 
+                 -@gutter 0 rgba(255, 0, 0, 0.2) inset  !important;
+      background-clip: content-box !important;
+    }
+  }
+  .setup(@var);
+  .pushpull(@var);
+  .gridsnap(@var);
+  .colcentered(@var);
+  .debug(@var);
+  .debugsm(@var);
+}
+
+.__generateSetup(@grids, @mixin) {
+    .for(@grids);
+    .-each(@item) {
+        @name: e(replace(@item, ':(.*)', ''));
+        .output(@name, @mixin);
+    }
+}
+//.__generateSetupPushPull(@grids) {
+//    .for(@grids);
+//    .-each(@item) {
+//        @name: e(replace(@item, ':(.*)', ''));
+//        .output(@name, @mixin);
+//        //[class*="@{name}-"][class*="push"],
+//        //[class*="@{name}-"][class*="pull"]{
+//        //    position: relative;
+//        //}
+//    }
+//}
+//
 
 
 // #Mixins
@@ -174,18 +265,24 @@
 
 // Font color
 // --------------------------------
-.color(@bgcolor, @percent:55%){
-  color:contrast(@bgcolor, @baseFontColor, white, @percent);
+.color(@bgcolor, @threshold:55%, @dark:@baseFontColor, @light:@altFontColor){
+  color:contrast(@bgcolor, @dark, @light, @threshold);
 }
 
 // Font contrast
 // --------------------------------
-.contrast (@bgColor, @threshold: 55%) when (lightness(@bgColor) >= @threshold) {
-  color: @baseFontColor;
-  text-shadow: 0 1px 0 rgba(255,255,255,.2);
-}
+//.contrast (@bgColor, @threshold: 55%) when (lightness(@bgColor) >= @threshold) {
+//
+//  color: @baseFontColor;
+//  text-shadow: 0 1px 0 rgba(255,255,255,.2);
+//}
+//
+//.contrast (@bgColor, @threshold: 55%) when (lightness(@bgColor) < @threshold) {
+//  color: @altFontColor;
+//  text-shadow: 0 -1px 0 rgba(0,0,0,.2);
+//}
 
-.contrast (@bgColor, @threshold: 55%) when (lightness(@bgColor) < @threshold) {
-  color: @altFontColor;
-  text-shadow: 0 -1px 0 rgba(0,0,0,.2);
+.contrast (@bgColor, @threshold: 55%, @dark:@baseFontColor, @light:@altFontColor ){
+  color: contrast(@bgColor, @dark, @light , @threshold);
+  text-shadow: 0 -1px 0 fade(contrast(@bgColor, @dark, @light , @threshold), 20%);
 }
