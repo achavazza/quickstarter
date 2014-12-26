@@ -89,7 +89,7 @@
         @value: replace(@item, '^[^:]*:', '');
         @number : ~`parseInt(@{value})`;
 
-        .__constructor     (@name, @number);
+        .__constructor     (@name, @number, @device);
         .__constructorProp (@name, @number, prefix, margin-left , @device);
         .__constructorProp (@name, @number, suffix, margin-right, @device);
         .__constructorProp (@name, @number, push  , left        , @device);
