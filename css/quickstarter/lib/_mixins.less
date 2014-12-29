@@ -265,24 +265,31 @@
 
 // Font color
 // --------------------------------
-.color(@bgcolor, @threshold:55%, @dark:@baseFontColor, @light:@altFontColor){
+.color(@bgcolor, @threshold:30%, @dark:@baseFontColor, @light:@altFontColor){
   color:contrast(@bgcolor, @dark, @light, @threshold);
 }
 
 // Font contrast
 // --------------------------------
-//.contrast (@bgColor, @threshold: 55%) when (lightness(@bgColor) >= @threshold) {
+//.contrast (@bgColor, @threshold: 30%) when (lightness(@bgColor) >= @threshold) {
 //
 //  color: @baseFontColor;
 //  text-shadow: 0 1px 0 rgba(255,255,255,.2);
 //}
 //
-//.contrast (@bgColor, @threshold: 55%) when (lightness(@bgColor) < @threshold) {
+//.contrast (@bgColor, @threshold: 30%) when (lightness(@bgColor) < @threshold) {
 //  color: @altFontColor;
 //  text-shadow: 0 -1px 0 rgba(0,0,0,.2);
 //}
 
-.contrast (@bgColor, @threshold: 55%, @dark:@baseFontColor, @light:@altFontColor ){
-  color: contrast(@bgColor, @dark, @light , @threshold);
-  text-shadow: 0 -1px 0 fade(contrast(@bgColor, @dark, @light , @threshold), 20%);
+.contrast (@bgColor, @threshold: 30%, @dark:@baseFontColor, @light:@altFontColor ){
+  @fontColor : contrast(@bgColor, @dark, @light , @threshold);
+  color: @fontColor;
+  .contrastShadow() when (contrast(@fontColor) >= contrast(@bgColor)){
+    text-shadow: 0 1px 0 fade(contrast(@fontColor, @dark, @light, @threshold), 20%);
+  }
+  .contrastShadow() when (contrast(@fontColor) < contrast(@bgColor)){
+    text-shadow: 0 -1px 0 fade(contrast(@fontColor, @dark, @light, @threshold), 20%);
+  }
+  .contrastShadow();
 }
