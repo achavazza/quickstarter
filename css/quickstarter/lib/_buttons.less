@@ -1,3 +1,7 @@
+// Table of Contents
+// ======================================================================================================
+// #Buttons       - basic styling
+// #Button-styles - style variations
 
 // #Button
 // ======================================================================================================
@@ -36,20 +40,12 @@
     //text-shadow: 0 1px 0 rgba(255,255,255,.5);
     .gradient(lighten(@brandDefault ,5%),darken(@brandDefault ,5%));
     .contrast(@brandDefault);
-    //.gradient(rgba(255,255,255,.1), rgba(0,0,0,.1));
-    //.gradient(#f5f5f5, rgba(255,255,255,.1), rgba(0,0,0,.1));
 
     &-hover,
     &:hover,
     &:focus{
         background-image: none;
     }
-
-    // Firefox: Get rid of the inner focus border 
-    // &::-moz-focus-inner {
-    //     padding: 0;
-    //     border: 0;
-    // }
 
     &:focus {
         outline: 0;
@@ -93,7 +89,7 @@
     }
 }
 
-// #Button Styles
+// #Button-styles
 // ======================================================================================================
 .btn{
     &-error,

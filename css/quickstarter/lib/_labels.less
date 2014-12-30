@@ -1,3 +1,7 @@
+// Table of Contents
+// ======================================================================================================
+// #Labels       - basic styling
+// #Label-styles - style variations
 
 // #Labels
 // ======================================================================================================
@@ -16,7 +20,7 @@
     text-align: center;
     text-decoration: none;
     cursor: pointer;
-    
+
     .user-select();
 
     *display: inline;   // IE 6/7
@@ -27,9 +31,7 @@
     // Style
     padding: @btnPadding;
     border: 1px solid #B7B7B7;
-    border-color: rgba(0, 0, 0, .1) 
-                  rgba(0, 0, 0, .1) 
-                  rgba(0, 0, 0, .25);
+    border-color: rgba(0, 0, 0, .1);
 
     border-radius: 3px;
     //text-shadow: 0 1px 0 rgba(255,255,255,.5);
@@ -44,16 +46,16 @@
     &-full { width: 100%; }
 }
 
-// #Label Styles
+// #Label-styles
 // ======================================================================================================
 .label{
     &-error,
-    &-danger  { background-color: lighten(@brandDanger ,5%); .contrast(@brandDanger )}
-    &-warning { background-color: lighten(@brandWarning,5%); .contrast(@brandWarning)}
-    &-info    { background-color: lighten(@brandInfo   ,5%); .contrast(@brandInfo   )}
-    &-success { background-color: lighten(@brandSuccess,5%); .contrast(@brandSuccess)}
-    &-primary { background-color: lighten(@brandPrimary,5%); .contrast(@brandPrimary)}
-    &-inverse { background-color: lighten(@brandInverse,5%); .contrast(@brandInverse)}
+    &-danger  { background-color: lighten(@brandDanger ,20%); .contrast(lighten(@brandDanger ,20%))}
+    &-warning { background-color: lighten(@brandWarning,20%); .contrast(lighten(@brandWarning,20%))}
+    &-info    { background-color: lighten(@brandInfo   ,20%); .contrast(lighten(@brandInfo   ,20%))}
+    &-success { background-color: lighten(@brandSuccess,20%); .contrast(lighten(@brandSuccess,20%))}
+    &-primary { background-color: lighten(@brandPrimary,20%); .contrast(lighten(@brandPrimary,20%))}
+    &-inverse { background-color: lighten(@brandInverse,20%); .contrast(lighten(@brandInverse,20%))}
     &-hollow{
         color: inherit;
         border-color: currentColor;

@@ -4,6 +4,7 @@
 // #Init             - small devices and up
 // #Form-horizontal  - label next to input
 // #Form-fit         - fits in the screen 100%
+// #Form-styles      - for validation and warnings
 
 
 
@@ -48,6 +49,10 @@
         vertical-align: middle;
 
         width: 100%;
+        &:focus{
+            border-color: @brandPrimary;
+            box-shadow: 0 0 5px fade(@brandPrimary,50%);
+        }
     }
 
     label { display: block; }
@@ -224,3 +229,20 @@
 // [type="time"]
 // [type="url"]
 // [type="week"]
+
+
+// #Form-styles
+// ======================================================================================================
+
+.form{
+     input{
+        &.error,
+        &.danger  { border-color: @inputDangerBorder  !important; }
+        &.warning { border-color: @inputWarningBorder !important; }
+        &.success { border-color: @inputSuccessBorder !important; }
+        &.info    { border-color: @inputInfoBorder    !important; }
+        &.primary { border-color: @inputPrimaryBorder !important; }
+        &.alt     { border-color: @inputAltBorder     !important; }
+        &.inverse { border-color: @inputInverseBorder !important; }
+    }
+}

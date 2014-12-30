@@ -4,9 +4,6 @@
 // #Lists
 // #Definition lists
 // #Tables
-// #Buttons
-// #Messages
-// #Form warnings
 
 // #Basic styles - For good typographic support
 // ======================================================================================================
@@ -120,20 +117,4 @@ dd {}
 .table td{
     border: @tableBorder;
     padding: @tablePadding;
-}
-
-
-// #Form warnings
-// ======================================================================================================
-
-.form{
-     input{
-        &.error,
-        &.danger  { border-color: @inputDangerBorder;  }
-        &.warning { border-color: @inputWarningBorder; }
-        &.success { border-color: @inputSuccessBorder; }
-        &.info    { border-color: @inputInfoBorder;    }
-        &.primary { border-color: @inputPrimaryBorder; }
-        &.inverse { border-color: @inputInverseBorder; }
-    }
 }
