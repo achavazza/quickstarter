@@ -87,6 +87,7 @@
 @elemSpacing : 0.5em;     // 4
 @elemIndent  : 1em;       // 5
 @elemBlock   : 0.5em 1em; // 6
+@elemRadius  : 3px;       // 
 
 
 
@@ -112,6 +113,7 @@
 // button separation
 
 @btnPadding      : @elemBlock;
+@btnRadius       : @elemRadius;
 
 // Complex
 // -------------------------------- 
@@ -134,6 +136,7 @@
 @labelSpan       : @elemSpan;
 @inputPadding    : @elemPadding;
 @inputSpacing    : @elemSpacing;
+@inputRadius     : @elemRadius;
 
 
 // Table
@@ -205,6 +208,8 @@
   @import "lib/_media";
   @import "lib/_grid";
   @import "lib/_buttons";
+  @import "lib/_labels";
+  @import "lib/_messages";
   @import "lib/_forms";
   @import "lib/_box";
 

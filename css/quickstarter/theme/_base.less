@@ -123,67 +123,6 @@ dd {}
 }
 
 
-// #Buttons
-// ======================================================================================================
-.btn{
-    &-error,
-    &-danger  { .gradient(lighten(@brandDanger ,5%),darken(@brandDanger ,5%)); .contrast(@brandDanger )}
-    &-warning { .gradient(lighten(@brandWarning,5%),darken(@brandWarning,5%)); .contrast(@brandWarning)}
-    &-info    { .gradient(lighten(@brandInfo   ,5%),darken(@brandInfo   ,5%)); .contrast(@brandInfo   )}
-    &-success { .gradient(lighten(@brandSuccess,5%),darken(@brandSuccess,5%)); .contrast(@brandSuccess)}
-    &-primary { .gradient(lighten(@brandPrimary,5%),darken(@brandPrimary,5%)); .contrast(@brandPrimary)}
-    &-inverse { .gradient(lighten(@brandInverse,5%),darken(@brandInverse,5%)); .contrast(@brandInverse)}
-    &-link,
-    &-link:hover,
-    &-link:active { 
-        padding: 0;
-        background: none;
-        border: 0 none;
-        box-shadow: 0 0 transparent;
-        color: @linkFontColor;
-    }
-    &-link{
-        &:hover{
-            text-decoration: underline;
-        }
-        &:focus{
-            box-shadow: 0 0 0 transparent;
-            //text-decoration: underline;
-        }
-    }
-    &-hollow{
-        color: inherit;
-        border-color: currentColor;
-        //border-color: inherit;
-        background-image: none;
-        background-color: transparent;
-        text-shadow: 0 0 transparent;
-    }
-}
-
-
-// #Messages
-// ======================================================================================================
-
-.message { 
-    border-radius: 3px; 
-    padding: 7px;
-    display: block;
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    color: #333;
-    background-color: #f2f2f2;
-    margin-bottom: 5px;
-
-    &-error,
-    &-danger  { background-color:@messageDanger;  .color(@messageDanger  ,80%)}
-    &-warning { background-color:@messageWarning; .color(@messageWarning ,80%)}
-    &-info    { background-color:@messageInfo;    .color(@messageInfo    ,80%)}
-    &-success { background-color:@messageSuccess; .color(@messageSuccess ,80%)}
-    &-primary { background-color:@messagePrimary; .color(@messagePrimary ,80%)}
-    &-inverse { background-color:@messageInverse; .color(@messageInverse ,80%)}
-}
-
-
 // #Form warnings
 // ======================================================================================================
 
