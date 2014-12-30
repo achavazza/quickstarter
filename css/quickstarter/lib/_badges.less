@@ -1,22 +1,23 @@
 // Table of Contents
 // ======================================================================================================
-// #Labels       - basic styling
-// #Label-styles - style variations
+// #Badges       - basic styling
+// #Badge-styles - style variations
 
-// #Labels
+// #Badges
 // ======================================================================================================
 
-.label {
+.badge {
     
     // Structure
     display: inline-block;
     zoom: 1;
 
     font-family: inherit;
-    font-size: 100%;
-    line-height: normal;
+
+    font-size: floor(@baseFontSize * 0.85px);
+    line-height: 1.6;
     white-space: nowrap;
-    vertical-align: baseline;
+    vertical-align: super;
     text-align: center;
     text-decoration: none;
 
@@ -28,34 +29,28 @@
 
 
     // Style
-    padding: @btnPadding;
+    padding: 0.2em 0.7em;
     border: 1px solid #B7B7B7;
     border-color: rgba(0, 0, 0, .1);
 
-    border-radius: 3px;
-    //text-shadow: 0 1px 0 rgba(255,255,255,.5);
+    border-radius: 2em;
     background-color: @brandDefault;
     .contrast(@brandDefault);
 
 
-    &-hidden {
-        display: none;
-    }
-
-    &-full { width: 100%; }
 }
 
-// #Label-styles
+// #Barge-styles
 // ======================================================================================================
-.label{
+.badge{
     &-error,
-    &-danger  { background-color: lighten(@brandDanger ,20%); .contrast(lighten(@brandDanger ,20%))}
-    &-warning { background-color: lighten(@brandWarning,20%); .contrast(lighten(@brandWarning,20%))}
-    &-info    { background-color: lighten(@brandInfo   ,20%); .contrast(lighten(@brandInfo   ,20%))}
-    &-success { background-color: lighten(@brandSuccess,20%); .contrast(lighten(@brandSuccess,20%))}
-    &-primary { background-color: lighten(@brandPrimary,20%); .contrast(lighten(@brandPrimary,20%))}
-    &-alt     { background-color: lighten(@brandAlt    ,20%); .contrast(lighten(@brandAlt    ,20%))}
-    &-inverse { background-color: lighten(@brandInverse,20%); .contrast(lighten(@brandInverse,20%))}
+    &-danger  { background-color: lighten(@brandDanger ,20%); .contrast(lighten(@brandDanger ,20%), 60%)}
+    &-warning { background-color: lighten(@brandWarning,20%); .contrast(lighten(@brandWarning,20%), 60%)}
+    &-info    { background-color: lighten(@brandInfo   ,20%); .contrast(lighten(@brandInfo   ,20%), 60%)}
+    &-success { background-color: lighten(@brandSuccess,20%); .contrast(lighten(@brandSuccess,20%), 60%)}
+    &-primary { background-color: lighten(@brandPrimary,20%); .contrast(lighten(@brandPrimary,20%), 60%)}
+    &-alt     { background-color: lighten(@brandAlt    ,20%); .contrast(lighten(@brandAlt    ,20%), 60%)}
+    &-inverse { background-color: lighten(@brandInverse,20%); .contrast(lighten(@brandInverse,20%), 60%)}
     &-hollow{
         color: inherit;
         border-color: currentColor;

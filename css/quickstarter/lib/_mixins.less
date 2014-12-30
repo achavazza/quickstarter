@@ -285,10 +285,10 @@
 .contrast (@bgColor, @threshold: 30%, @dark:@baseFontColor, @light:@altFontColor ){
   @fontColor : contrast(@bgColor, @dark, @light , @threshold);
   color: @fontColor;
-  .contrastShadow() when (contrast(@fontColor) >= contrast(@bgColor)){
+  .contrastShadow() when (lightness(@bgColor) >= lightness(@fontColor)){
     text-shadow: 0 1px 0 fade(contrast(@fontColor, @dark, @light, @threshold), 20%);
   }
-  .contrastShadow() when (contrast(@fontColor) < contrast(@bgColor)){
+  .contrastShadow() when (lightness(@bgColor) < lightness(@fontColor)){
     text-shadow: 0 -1px 0 fade(contrast(@fontColor, @dark, @light, @threshold), 20%);
   }
   .contrastShadow();

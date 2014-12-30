@@ -28,16 +28,6 @@
 @h3FontSize    : 1.563em ;
 @h4FontSize    : 1.25em  ;
 @h5FontSize    : 0.8em   ;
-//@h6FontSize    : 0.8em;
-
-//@h1FontSize    : 2em  ;
-//@h2FontSize    : 1.8em;
-//@h3FontSize    : 1.4em;
-//@h4FontSize    : 1.2em;
-//@h5FontSize    : 1em  ;
-//@h6FontSize    : 0.8em;
-
-//@subFontSize   : 0.8em;
 
 // Margins
 // -------------------------------- 
@@ -134,7 +124,7 @@
 //                                              ┘
 
 // Forms
-
+// -------------------------------- 
 @labelWidth      : @elemWidth;
 @labelSpan       : @elemSpan;
 @inputPadding    : @elemPadding;
@@ -142,20 +132,27 @@
 @inputRadius     : @elemRadius;
 
 
+
 // Table
 // -------------------------------- 
 @tableBorder   : 1px solid #666;
 @tablePadding  : @elemPadding;
 
+
+
 // Media
 // -------------------------------- 
 @mediaSpan       : @elemSpan;
+
+
+
 
 // Definition lists
 // -------------------------------- 
 @defWidth        : @elemWidth;
 @defSpan         : @elemSpan;
 @defSpacing      : @elemSpacing;
+
 
 
 // Layout
@@ -165,6 +162,8 @@
 //grids separated by comma
 //@grids: "cols:12";
 @grids: "triad:3", "quad:4";
+
+
 
 // IMPORTANT!
 // Less than portrait will be consider mobile (layout fluid)
@@ -180,6 +179,9 @@
 @layoutSmallDevice   : 700px;
 @layoutMediumDevice  : 940px;
 @layoutLargeDevice   : 1180px;
+
+
+
 
 
 
@@ -212,6 +214,7 @@
   @import "lib/_grid";
   @import "lib/_buttons";
   @import "lib/_labels";
+  @import "lib/_badges";
   @import "lib/_messages";
   @import "lib/_forms";
   @import "lib/_box";
