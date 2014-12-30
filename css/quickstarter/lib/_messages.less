@@ -2,19 +2,23 @@
 // ======================================================================================================
 
 .message { 
-    border-radius: 3px; 
-    padding: 7px;
+    border-radius: @elemRadius; 
+    //padding: 7px;
+    padding: @elemPadding;
     display: block;
     border: 1px solid rgba(0, 0, 0, 0.2);
     color: #333;
-    background-color: #f2f2f2;
-    margin-bottom: 5px;
+    background-color: @brandDefault;
+    margin-bottom: @elemSpacing;
+    //margin-bottom: 5px;
 
     &-error,
-    &-danger  { background-color:@messageDanger;  .color(@messageDanger  ,80%)}
-    &-warning { background-color:@messageWarning; .color(@messageWarning ,80%)}
-    &-info    { background-color:@messageInfo;    .color(@messageInfo    ,80%)}
-    &-success { background-color:@messageSuccess; .color(@messageSuccess ,80%)}
-    &-primary { background-color:@messagePrimary; .color(@messagePrimary ,80%)}
-    &-inverse { background-color:@messageInverse; .color(@messageInverse ,80%)}
+    &-danger  { background-color:@messageDanger;  .contrast(@messageDanger  ,false ,40%)}
+    &-warning { background-color:@messageWarning; .contrast(@messageWarning ,false ,40%)}
+    &-info    { background-color:@messageInfo;    .contrast(@messageInfo    ,false ,40%)}
+    &-success { background-color:@messageSuccess; .contrast(@messageSuccess ,false ,40%)}
+    &-primary { background-color:@messagePrimary; .contrast(@messagePrimary ,false ,40%)}
+    &-alt     { background-color:@messageAlt;     .contrast(@messageAlt     ,false ,40%)}
+    &-default { background-color:@messageDefault; .contrast(@messageDefault ,false ,40%)}
+    &-inverse { background-color:@messageInverse; .contrast(@messageInverse ,false ,40%)}
 }

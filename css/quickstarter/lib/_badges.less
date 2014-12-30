@@ -34,23 +34,30 @@
     border-color: rgba(0, 0, 0, .1);
 
     border-radius: 2em;
+    //text-shadow: 0 1px 0 rgba(255,255,255,.5);
     background-color: @brandDefault;
-    .contrast(@brandDefault);
+    .contrast(@brandDefault, false);
 
 
+    /*&-hidden {
+        display: none;
+    }
+
+    &-full { width: 100%; }*/
 }
 
 // #Barge-styles
 // ======================================================================================================
 .badge{
     &-error,
-    &-danger  { background-color: lighten(@brandDanger ,20%); .contrast(lighten(@brandDanger ,20%), 60%)}
-    &-warning { background-color: lighten(@brandWarning,20%); .contrast(lighten(@brandWarning,20%), 60%)}
-    &-info    { background-color: lighten(@brandInfo   ,20%); .contrast(lighten(@brandInfo   ,20%), 60%)}
-    &-success { background-color: lighten(@brandSuccess,20%); .contrast(lighten(@brandSuccess,20%), 60%)}
-    &-primary { background-color: lighten(@brandPrimary,20%); .contrast(lighten(@brandPrimary,20%), 60%)}
-    &-alt     { background-color: lighten(@brandAlt    ,20%); .contrast(lighten(@brandAlt    ,20%), 60%)}
-    &-inverse { background-color: lighten(@brandInverse,20%); .contrast(lighten(@brandInverse,20%), 60%)}
+    &-danger  { background-color: lighten(@brandDanger ,20%); .contrast(lighten(@brandDanger ,20%), false, 60%)}
+    &-warning { background-color: lighten(@brandWarning,20%); .contrast(lighten(@brandWarning,20%), false, 60%)}
+    &-info    { background-color: lighten(@brandInfo   ,20%); .contrast(lighten(@brandInfo   ,20%), false, 60%)}
+    &-success { background-color: lighten(@brandSuccess,20%); .contrast(lighten(@brandSuccess,20%), false, 60%)}
+    &-primary { background-color: lighten(@brandPrimary,20%); .contrast(lighten(@brandPrimary,20%), false, 60%)}
+    &-alt     { background-color: lighten(@brandAlt    ,20%); .contrast(lighten(@brandAlt    ,20%), false, 60%)}
+    &-default { background-color: lighten(@brandDefault,20%); .contrast(lighten(@brandDefault,20%), false, 60%)}
+    &-inverse { background-color: lighten(@brandInverse,20%); .contrast(lighten(@brandInverse,20%), false, 60%)}
     &-hollow{
         color: inherit;
         border-color: currentColor;
