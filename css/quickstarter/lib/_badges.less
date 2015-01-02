@@ -46,6 +46,8 @@
 // #Badge-styles
 // ======================================================================================================
 .badge{
+    &-default { background-color: @brandDefault; .contrast(@brandDefault, false);}
+    
     &-error,
     &-danger  { background-color: lighten(@brandDanger ,20%); .contrast(lighten(@brandDanger ,20%), false, 60%)}
     &-warning { background-color: lighten(@brandWarning,20%); .contrast(lighten(@brandWarning,20%), false, 60%)}
@@ -53,7 +55,6 @@
     &-success { background-color: lighten(@brandSuccess,20%); .contrast(lighten(@brandSuccess,20%), false, 60%)}
     &-primary { background-color: lighten(@brandPrimary,20%); .contrast(lighten(@brandPrimary,20%), false, 60%)}
     &-alt     { background-color: lighten(@brandAlt    ,20%); .contrast(lighten(@brandAlt    ,20%), false, 60%)}
-    &-default { background-color: lighten(@brandDefault,20%); .contrast(lighten(@brandDefault,20%), false, 60%)}
     &-inverse { background-color: lighten(@brandInverse,20%); .contrast(lighten(@brandInverse,20%), false, 60%)}
     &-hollow{
         color: inherit;

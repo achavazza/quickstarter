@@ -11,8 +11,10 @@
     padding: @elemPadding;
     display: block;
     border: 1px solid rgba(0, 0, 0, 0.2);
-    color: #333;
+
     background-color: @brandDefault;
+    .contrast(@brandDefault, false);
+
     margin-bottom: @elemSpacing;
     &:empty{
         display: none;
@@ -22,6 +24,8 @@
 // #Message-styles
 // ======================================================================================================
 .message { 
+    &-default { background-color: @brandDefault; .contrast(@brandDefault, false);}
+
     &-error,
     &-danger  { background-color:@messageDanger;  .contrast(@messageDanger  ,false ,40%)}
     &-warning { background-color:@messageWarning; .contrast(@messageWarning ,false ,40%)}
@@ -29,6 +33,5 @@
     &-success { background-color:@messageSuccess; .contrast(@messageSuccess ,false ,40%)}
     &-primary { background-color:@messagePrimary; .contrast(@messagePrimary ,false ,40%)}
     &-alt     { background-color:@messageAlt;     .contrast(@messageAlt     ,false ,40%)}
-    &-default { background-color:@messageDefault; .contrast(@messageDefault ,false ,40%)}
     &-inverse { background-color:@messageInverse; .contrast(@messageInverse ,false ,40%)}
 }
