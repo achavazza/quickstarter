@@ -35,13 +35,15 @@
     font-weight: bold;
 
     border-radius: 2em;
-    //text-shadow: 0 1px 0 rgba(255,255,255,.5);
     background-color: @brandDefault;
     .contrast(@brandDefault, false);
 
+    &:empty{
+        display: none;
+    }
 }
 
-// #Barge-styles
+// #Badge-styles
 // ======================================================================================================
 .badge{
     &-error,

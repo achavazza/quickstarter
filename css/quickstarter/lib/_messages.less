@@ -1,17 +1,27 @@
+// Table of Contents
+// ======================================================================================================
+// #Messages       - basic styling
+// #Message-styles - style variations
+
 // #Messages
 // ======================================================================================================
 
 .message { 
     border-radius: @elemRadius; 
-    //padding: 7px;
     padding: @elemPadding;
     display: block;
     border: 1px solid rgba(0, 0, 0, 0.2);
     color: #333;
     background-color: @brandDefault;
     margin-bottom: @elemSpacing;
-    //margin-bottom: 5px;
+    &:empty{
+        display: none;
+    }
+}
 
+// #Message-styles
+// ======================================================================================================
+.message { 
     &-error,
     &-danger  { background-color:@messageDanger;  .contrast(@messageDanger  ,false ,40%)}
     &-warning { background-color:@messageWarning; .contrast(@messageWarning ,false ,40%)}
