@@ -53,6 +53,7 @@
 
     &-active ,
     &:active {
+        background-image: none;
         box-shadow: 0 0 0 1px rgba(0,0,0, 0.15) inset,
                     0 0   6px rgba(0,0,0, 0.20) inset;
     }
@@ -92,6 +93,8 @@
 // #Button-styles
 // ======================================================================================================
 .btn{
+    &-default { .gradient(lighten(@brandDefault,5%),darken(@brandDefault,5%)); .contrast(darken(@brandDefault, 5%))}
+
     &-error,
     &-danger  { .gradient(lighten(@brandDanger ,5%),darken(@brandDanger ,5%)); .contrast(darken(@brandDanger , 5%))}
     &-warning { .gradient(lighten(@brandWarning,5%),darken(@brandWarning,5%)); .contrast(darken(@brandWarning, 5%))}
@@ -125,5 +128,27 @@
         background-image: none;
         background-color: transparent;
         text-shadow: 0 0 transparent;
+    }
+}
+
+.btn-group{
+    display: table !important;
+    > * {
+        display: table-cell !important;
+        margin: 0;
+        border-radius: 0 !important;
+        vertical-align: baseline !important;
+    }
+    :first-child{
+        border-top-left-radius: @inputRadius !important;
+        border-bottom-left-radius: @inputRadius !important;
+    }
+    :last-child{
+        border-top-right-radius: @inputRadius !important;
+        border-bottom-right-radius: @inputRadius !important;
+    }
+    .btn,
+    .label{
+        vertical-align: middle;
     }
 }
