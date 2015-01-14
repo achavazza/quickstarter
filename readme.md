@@ -4,7 +4,7 @@
 Quickstarter is a bunch of tools to help you build your next HTML5 project.
 It's a Lightweight, Mobile-first, Style-agnostic & Responsive Grid System.
 
-Check it out [See full docs](achavazza.github.io/getquickstarter/)
+Check it out [See full docs](http://achavazza.github.io/getquickstarter/)
 
 ##Usage
 Compile quickstarter.less with [Koala](http://koala-app.com)
