@@ -57,21 +57,13 @@
 
     .row {
         background: rgba(0, 0, 255, 0.1) !important;
-        //box-shadow: 0 0 transparent , 
-        //            0 0 transparent !important;
     }
-    //[class*="triad-"] ,
-    //[class*="quad-"]  {
-    //    background: rgba(255,0,0,0.1) !important; 
-    //    //box-shadow: 0 0 transparent , 
-    //    //            0 0 transparent !important;
-    //}
+    
     .__generateSetup(@grids, debug);
 }
 
 
 // #Init
-//.responsive-sm() when (isnumber(@screenSmallDevice)){
 @media screen and (min-width: @screenSmallDevice){
     // #Grid - Container
     // ======================================================================================================
@@ -96,14 +88,6 @@
         margin-left: 0;
         margin-right: 0;
     }
-    //.grid-snap  [class*="triad-"] ,
-    //.grid-snap  [class*="quad-"]  ,
-    //.row-snap > [class*="triad-"] ,
-    //.row-snap > [class*="quad-"]  {
-    //    padding-left: 0;
-    //    padding-right: 0;
-    //}
-    //.__generateSetupSnap(@grids);
     .__generateSetup(@grids, gridsnap);
 
     // #Row - no more .alpha or .omega, instead we have .row
@@ -119,56 +103,18 @@
     // #Quads & Triads - Init
     // ======================================================================================================
     .__generateSetup(@grids, setup);
-    //[class*="triad-"],[class*="quad-"]{
-    //    display: inline;
-    //    float: left;
-    //    padding-left:  @gutter;
-    //    padding-right: @gutter;
-    //    .box-model(border-box);
-    //}
 
     .__generateSetup(@grids, pushpull);
-    //.__generateSetupPushPull(@grids);
-    //[class*="triad-"][class*="push"]  ,
-    //[class*="triad-"][class*="pull"]  ,
-    //[class*="quad-"][class*="push"]   ,
-    //[class*="quad-"][class*="pull"]   {
-    //    position: relative
-    //}
     
     .__generateGrid(@grids);
 
-    //.__constructor     (triad, 3);
-    //.__constructorProp (triad, 3, prefix, margin-left );
-    //.__constructorProp (triad, 3, suffix, margin-right);
-    //.__constructorProp (triad, 3, push  , left        );
-    //.__constructorProp (triad, 3, pull  , right       );
-
-    //.__constructor     (quad,  4);
-    //.__constructorProp (quad,  4, prefix, margin-left );
-    //.__constructorProp (quad,  4, suffix, margin-right);
-    //.__constructorProp (quad,  4, push  , left        );
-    //.__constructorProp (quad,  4, pull  , right       );
-
     .debug{
-        //.grid{box-shadow: 0 0 0 10px rgba(255,255,0,0.2);}
         .row {
             background: rgba(0, 0, 255, 0.1) !important;
-            //box-shadow: @gutter 0 rgba(0, 0, 255, 0.2) inset, 
-            //           -@gutter 0 rgba(0, 0, 255, 0.2) inset  !important;
         }
         .__generateSetup(@grids, debugsm);
-        //[class*="triad-"] ,
-        //[class*="quad-"]  {
-        //    background: rgba(255,0,0,0.1) !important; 
-        //    box-shadow: @gutter 0 rgba(255, 0, 0, 0.2) inset, 
-        //               -@gutter 0 rgba(255, 0, 0, 0.2) inset  !important;
-        //    background-clip: content-box !important;
-        //}
     }
 }
-//}
-//.responsive-sm();
 
 .responsive-sm() when (isnumber(@screenSmallDevice)){
 @media screen and (min-width: @screenSmallDevice){
@@ -176,18 +122,6 @@
     .grid { width: @layoutSmallDevice; }
 
     .__generateGridResponsive(@grids, sm);
-
-    //.__constructor     (triad, 3, sm);
-    //.__constructorProp (triad, 3, prefix, margin-left , sm);
-    //.__constructorProp (triad, 3, suffix, margin-right, sm);
-    //.__constructorProp (triad, 3, push  , left        , sm);
-    //.__constructorProp (triad, 3, pull  , right       , sm);
-
-    //.__constructor     (quad,  4, sm);
-    //.__constructorProp (quad,  4, prefix, margin-left , sm);
-    //.__constructorProp (quad,  4, suffix, margin-right, sm);
-    //.__constructorProp (quad,  4, push  , left        , sm);
-    //.__constructorProp (quad,  4, pull  , right       , sm);
 
     // #Portrait Visible / Invisible - switch on off elements
     // ======================================================================================================
@@ -228,18 +162,6 @@
 
     .__generateGridResponsive(@grids, md);
 
-    //.__constructor     (triad, 3, md);
-    //.__constructorProp (triad, 3, prefix, margin-left , md);
-    //.__constructorProp (triad, 3, suffix, margin-right, md);
-    //.__constructorProp (triad, 3, push  , left        , md);
-    //.__constructorProp (triad, 3, pull  , right       , md);
-
-    //.__constructor     (quad,  4, md);
-    //.__constructorProp (quad,  4, prefix, margin-left , md);
-    //.__constructorProp (quad,  4, suffix, margin-right, md);
-    //.__constructorProp (quad,  4, push  , left        , md);
-    //.__constructorProp (quad,  4, pull  , right       , md);
-
     // #Landscape Visible / Invisible - switch on off elements
     // ======================================================================================================
 
@@ -279,19 +201,6 @@
 
     .__generateGridResponsive(@grids, lg);
 
-    //.__constructor     (triad, 3, lg);
-    //.__constructorProp (triad, 3, prefix, margin-left , lg);
-    //.__constructorProp (triad, 3, suffix, margin-right, lg);
-    //.__constructorProp (triad, 3, push  , left        , lg);
-    //.__constructorProp (triad, 3, pull  , right       , lg);
-
-    //.__constructor     (quad,  4, lg);
-    //.__constructorProp (quad,  4, prefix, margin-left , lg);
-    //.__constructorProp (quad,  4, suffix, margin-right, lg);
-    //.__constructorProp (quad,  4, push  , left        , lg);
-    //.__constructorProp (quad,  4, pull  , right       , lg);
-
-    
     // #Desktop Visible / Invisible - switch on off elements
     // ======================================================================================================
     .visible-only        ,

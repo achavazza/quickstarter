@@ -1,0 +1,28 @@
+// Table of Contents
+// ======================================================================================================
+// #Tables - Tables basic styling
+
+// #Tables
+// ======================================================================================================
+.table{
+    width: 100%;
+    th,
+    td{
+        padding: @tablePadding;
+        border-bottom: @tableBorder;
+    }
+    th{
+        background: @tableBgHead;
+    }
+    &-bordered{
+        th,
+        td{
+            border: @tableBorder;
+        }
+    }
+    &-stripped{
+        tr:nth-child(odd) td{
+            background: @tableBgOdd;
+        }
+    }
+}

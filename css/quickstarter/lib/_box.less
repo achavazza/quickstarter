@@ -1,51 +1,47 @@
+// Table of Contents
+// ======================================================================================================
+// #Box - Box element
 
 @box   : 10px;
 @boxSm : 5px;
 @boxMd : 20px;
+
 .box{
-	padding: @box;
+	.box(@box);
+	
 	& &-head{
-		margin: -@box -@box 0;
-		padding: @box;
+		.boxHead(@box);
 	}
 	& &-content{
-		margin: 0 -@box;
-		padding: @box;
+		.boxContent(@box);
 	}
 	& &-foot{
-		margin: 0 -@box -@box;
-		padding: @box;
+		.boxFoot(@box);
 	}
 
 	&-sm{
-		padding: @boxSm;
+		.box(@boxSm);
 		& &-head{
-			margin: -@boxSm -@boxSm 0;
-			padding: @boxSm;
+			.boxHead(@boxSm);
 		}
 		& &-content{
-			margin: 0 -@boxSm;
-			padding: @boxSm;
+			.boxContent(@boxSm);
 		}
 		& &-foot{
-			margin: 0 -@boxSm -@boxSm;
-			padding: @boxSm;
+			.boxFoot(@boxSm);
 		}
 	}
+
 	&-md{
-		padding: @boxMd;
+		.box(@boxMd);
 		& &-head{
-			margin: -@boxMd -@boxMd 0;
-			padding: @boxMd;
+			.boxHead(@boxMd);
 		}
 		& &-content{
-			margin: 0 -@boxMd;
-			padding: @boxMd;
+			.boxContent(@boxMd);
 		}
 		& &-foot{
-			margin: 0 -@boxMd -@boxMd;
-			padding: @boxMd;
+			.boxFoot(@boxMd);
 		}
 	}
 }
-

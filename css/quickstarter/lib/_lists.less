@@ -1,0 +1,66 @@
+// Table of Contents
+// ======================================================================================================
+// #Lists            - Ordered & Unordered lists
+// #Definition Lists - Definition list styling
+
+// #Lists
+// ======================================================================================================
+
+ol.list li,
+ul.list li{
+    margin-left: @listIndent;
+    margin-bottom: @listSpacing;
+}
+ul.list li       { list-style: disc        outside none; }
+ul.list li li    { list-style: square      outside none; }
+ul.list li li li { list-style: circle      outside none; }
+ol.list li       { list-style: decimal     outside none; }
+ol.list li li    { list-style: lower-alpha outside none; }
+ol.list li li li { list-style: lower-roman outside none; }
+
+// #Definition Lists
+// ======================================================================================================
+
+dl {}
+dt {}
+dd {}
+
+.dl{
+    &-list,
+    &-vertical,
+    &-horizontal{
+        margin: 0;
+        margin-bottom: @pSpacing;
+
+        dt{
+            font-weight: bold;
+            margin-bottom: @defSpacing;
+            padding-top: @defSpacing;
+        }
+        dd{
+            margin-bottom: @defSpacing;
+            //padding-top: @defSpacing;
+            margin-left: 0;
+        }
+    }
+}
+@media (min-width: @screenSmallDevice){
+    .dl{
+        &-horizontal{
+            dt{
+                width: @defWidth;
+                max-width: @defWidth;
+                padding-right: @defSpan;
+                text-align: right;
+                float: left;
+                clear: right;
+            }
+            dd{
+                margin-bottom: @defSpacing;
+                padding-top: @defSpacing;
+                margin-left: @defWidth + @defSpan;
+            }
+        }
+    }
+}
+

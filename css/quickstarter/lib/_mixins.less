@@ -76,7 +76,7 @@
 
         .__constructor     (@name, @number);
         .__constructorProp (@name, @number, prefix, margin-left );
-        .__constructorProp (@name, @number, suffix, margin-right);
+        //.__constructorProp (@name, @number, suffix, margin-right); //deprecated
         .__constructorProp (@name, @number, push  , left        );
         .__constructorProp (@name, @number, pull  , right       );
     }
@@ -91,7 +91,7 @@
 
         .__constructor     (@name, @number, @device);
         .__constructorProp (@name, @number, prefix, margin-left , @device);
-        .__constructorProp (@name, @number, suffix, margin-right, @device);
+        //.__constructorProp (@name, @number, suffix, margin-right, @device); //deprecated
         .__constructorProp (@name, @number, push  , left        , @device);
         .__constructorProp (@name, @number, pull  , right       , @device);
     }
@@ -176,18 +176,6 @@
         .output(@name, @mixin);
     }
 }
-//.__generateSetupPushPull(@grids) {
-//    .for(@grids);
-//    .-each(@item) {
-//        @name: e(replace(@item, ':(.*)', ''));
-//        .output(@name, @mixin);
-//        //[class*="@{name}-"][class*="push"],
-//        //[class*="@{name}-"][class*="pull"]{
-//        //    position: relative;
-//        //}
-//    }
-//}
-//
 
 
 // #Mixins
@@ -195,9 +183,8 @@
 
 // Gradient generator
 // --------------------------------
-
 // thanks to http://lesselements.com
-//.gradient(@color: #F5F5F5, @start: #EEE, @stop: #FFF, @repeat: repeat-x) {
+
 .gradient(@start: #EEE, @stop: #FFF, @repeat: repeat-x) {
   background-color: @start;
   background-image: -webkit-gradient(linear,
@@ -271,16 +258,6 @@
 
 // Font contrast
 // --------------------------------
-//.contrast (@bgColor, @threshold: 30%) when (lightness(@bgColor) >= @threshold) {
-//
-//  color: @baseFontColor;
-//  text-shadow: 0 1px 0 rgba(255,255,255,.2);
-//}
-//
-//.contrast (@bgColor, @threshold: 30%) when (lightness(@bgColor) < @threshold) {
-//  color: @altFontColor;
-//  text-shadow: 0 -1px 0 rgba(0,0,0,.2);
-//}
 
 .contrast (@bgColor, @shadow: true, @threshold: 30%, @dark:@baseFontColor, @light:@altFontColor ){
   @fontColor : contrast(@bgColor, @dark, @light , @threshold);
@@ -295,4 +272,30 @@
     .contrastShadow();
   }
   .shadow();
+}
+
+// Box element mixin
+// --------------------------------
+
+.box(@pdBox){
+    padding: @pdBox;
+}
+
+.boxHead(@pdBox){
+    margin: -@pdBox -@pdBox 0;
+    padding: @pdBox;
+}
+
+.boxFoot(@pdBox){
+    margin: 0 -@pdBox -@pdBox;
+    padding: @pdBox; 
+}
+
+.boxContent(@pdBox){
+    margin: 0 -@pdBox;
+    padding: @pdBox;
+}
+
+.boxWrap(@pdBox){
+    margin: 0 -@pdBox;
 }
