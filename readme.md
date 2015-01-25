@@ -107,3 +107,6 @@ Follow me at, [@getquickstarter](http://twitter.com/getquickstarter), keep up to
 
 ##Copyright and license
 Quickstarter is free, libre and public domain see more on [http://unlicense.org/](http://unlicense.org/)
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/achavazza/quickstarter/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
