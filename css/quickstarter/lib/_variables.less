@@ -1,0 +1,192 @@
+// Table of Contents
+// ======================================================================================================
+// #Init - Setup
+// - #Type
+// - #Margins
+// - #Colors
+// #Global element variables
+// - #Lists
+// - #Block
+// - #Complex
+// - #Forms
+// - #Tables
+// - #Media
+// - #Definition Lists
+// #Layout
+// - #Responsive
+
+
+// #Init - Setup
+// ================================
+
+// Type
+// -------------------------------- 
+@baseFontFamily: "Segoe UI", Segoe, Candara, Frutiger, "Frutiger Linotype", Helvetica, Arial, sans-serif;
+
+@baseFontSize  : 14px;
+
+@h1FontSize    : 2.441em ;
+@h2FontSize    : 1.953em ;
+@h3FontSize    : 1.563em ;
+@h4FontSize    : 1.25em  ;
+@h5FontSize    : 0.8em   ;
+
+
+// Margins
+// -------------------------------- 
+
+@hSpacing      : 1.414em 0 0.5em;  //headline separation;
+@pSpacing      : 1em;    //paragraph separation;
+
+
+
+
+// Colors
+// -------------------------------- 
+
+@baseFontColor  : #333;    //grey
+@subFontColor   : #999;    //lightgrey
+@altFontColor   : #fff;    //white
+@linkFontColor  : #0063ff; //blue
+
+@brandDefault   : #ecf0f1; //grey
+@brandDanger    : #c0392b; //red
+@brandWarning   : #f39c12; //yellow
+@brandInfo      : #1abc9c; //cyan
+@brandSuccess   : #27ae60; //green
+@brandPrimary   : #3498db; //blue
+@brandAlt       : #8e44ad; //violet
+@brandInverse   : #2c3e50; //black
+
+@inputDangerBorder  : @brandDanger;  //red
+@inputWarningBorder : @brandWarning; //yellow
+@inputSuccessBorder : @brandInfo;    //green
+@inputInfoBorder    : @brandSuccess; //cyan
+@inputPrimaryBorder : @brandPrimary; //blue
+@inputAltBorder     : @brandAlt;     //violet
+@inputInverseBorder : @brandInverse; //black
+
+@messageDefault : lighten(@brandDefault ,40%); //grey
+@messageDanger  : lighten(@brandDanger  ,40%); //red
+@messageWarning : lighten(@brandWarning ,40%); //yellow
+@messageInfo    : lighten(@brandInfo    ,40%); //cyan
+@messageSuccess : lighten(@brandSuccess ,40%); //green
+@messagePrimary : lighten(@brandPrimary ,40%); //blue
+@messageAlt     : lighten(@brandAlt     ,40%); //violet
+@messageInverse : lighten(@brandInverse ,40%); //black
+
+
+// #Global Element variables
+// ================================
+
+@elemWidth   : 9em;       // 1
+@elemSpan    : 1em;       // 2
+@elemPadding : 0.5em;     // 3
+@elemSpacing : 0.5em;     // 4
+@elemIndent  : 1em;       // 5
+@elemBlock   : 0.5em 1em; // 6
+@elemRadius  : 3px;       // 
+
+
+
+// - #Lists
+// --------------------------------------------------
+// ┌ 5 ┬─────── 100% ────────┐
+//      ##################### ┐ 
+//                            4
+//                            ┘
+
+
+@listIndent    : @elemIndent;
+@listSpacing   : @elemSpacing;
+
+
+// - #Block
+// --------------------------------------------------
+// ┌─── 6 ────┐
+// ┌──────────┐ ┐ 
+// │  button  │  6
+// └──────────┘ ┘
+//
+// button separation
+
+@btnPadding      : @elemBlock;
+@btnRadius       : @elemRadius;
+
+// - #Complex
+// -------------------------------- 
+// Sets the width of the label on .form-horizontal;
+// 1- @labelwidth 
+// 2- @labelSpan
+// 3- @inputPadding
+// 4- @inputSpacing
+//
+// ┌───── 1 ─────┬ 2 ┬───────── 100% ─────────┐
+//                   ┌────────────────────────┐ ┐ 
+//          Label    │ input                  │  3
+//                   └────────────────────────┘ ┤
+//                                               4
+//                                              ┘
+
+// - #Forms
+// -------------------------------- 
+
+@labelWidth      : @elemWidth;
+@labelSpan       : @elemSpan;
+@inputPadding    : @elemPadding;
+@inputSpacing    : @elemSpacing;
+@inputRadius     : @elemRadius;
+
+
+
+// -#Tables
+// -------------------------------- 
+@tableBgHead     : @brandDefault;
+@tableBorder     : 1px solid lighten(@subFontColor, 20%);
+@tablePadding    : @elemPadding;
+@tableBgOdd      : lighten(@brandDefault, 2%);
+
+
+
+// - #Media
+// -------------------------------- 
+@mediaSpan       : @elemSpan;
+
+
+
+
+// - #Definition lists
+// -------------------------------- 
+@defWidth        : @elemWidth;
+@defSpan         : @elemSpan;
+@defSpacing      : @elemSpacing;
+
+
+
+// - #Layout
+// ================================ 
+@gutter  : 10px;
+@grids   : "triad:3", "quad:4";
+ 
+//grids separated by comma
+//Example: @grids: "cols:12";
+
+
+
+// - #Responsive
+// -------------------------------- 
+
+@screenSmallDevice   : 768px; 
+@screenMediumDevice  : 1024px;
+@screenLargeDevice   : 1240px;
+
+@layoutSmallDevice   : 700px;
+@layoutMediumDevice  : 940px;
+@layoutLargeDevice   : 1180px;
+
+// IMPORTANT!
+// Less than portrait will be consider mobile (layout fluid)
+// @screenMobile: < 768px  =  @layoutMobile: auto;
+// -
+// To disable set width to false
+// e.g.: @screenLargeDevice : false;
