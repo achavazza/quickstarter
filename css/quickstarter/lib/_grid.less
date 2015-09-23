@@ -3,17 +3,17 @@
 //     #Init
 //     #Desktop (1240px)
 //         #Desktop Visible / Invisible
-// 
+//
 //     #Landscape (1000px > < 1240px)
 //         #Landscape Mutate
 //         #Landscape Visible / Invisible
 //         #Debug
-// 
+//
 //     #Portrait  (768px > < 1000px)
 //         #Portrait Mutate
 //         #Portrait Visible / Invisible
 //         #Debug
-// 
+//
 //     #Mobile  (> 768px)
 //         #Mobile Reset
 //         #Mobile Mutate
@@ -22,7 +22,7 @@
 
 // #Mobile
 
-.grid { 
+.grid {
     margin-left: 20px;
     margin-right: 20px;
 }
@@ -58,7 +58,7 @@
     .row {
         background: rgba(0, 0, 255, 0.1) !important;
     }
-    
+
     .__generateSetup(@grids, debug);
 }
 
@@ -75,6 +75,16 @@
         // if doesn't have @media support
         //width: @layoutMediumDevice;
     }
+    //grid-reset
+    /*
+    .grid-none-sm,
+    .grid-none-md,
+    .grid-none-lg {
+        margin-left: 0;
+        margin-right: 0;
+    }
+    */
+
     .grid-fluid{
         margin-left: @gutter  !important;
         margin-right: @gutter !important;
@@ -96,8 +106,16 @@
       margin-left:  -@gutter;
       margin-right: -@gutter;
       clear: both;
+      /*
+      .grid-none-sm &,
+      .grid-none-md &,
+      .grid-none-lg &{
+          margin-left:  0;
+          margin-right: 0;
+      }
+      */
     }
-    
+
     .__generateSetup(@grids, colcentered);
 
     // #Quads & Triads - Init
@@ -105,21 +123,24 @@
     .__generateSetup(@grids, setup);
 
     .__generateSetup(@grids, pushpull);
-    
+
     .__generateGrid(@grids);
 
     .debug{
         .row {
             background: rgba(0, 0, 255, 0.1) !important;
         }
-        .__generateSetup(@grids, debugsm);
+        //.__generateSetup(@grids, debugsm);
     }
 }
 
 .responsive-sm() when (isnumber(@screenSmallDevice)){
 @media screen and (min-width: @screenSmallDevice){
-    
+
     .grid { width: @layoutSmallDevice; }
+    /*
+    .grid-none-sm { width: auto; }
+    */
 
     .__generateGridResponsive(@grids, sm);
 
@@ -129,7 +150,7 @@
     .visible-only-md    ,
     .visible-only-lg    ,
     .invisible-only-sm  { display: none !important;  }
-   
+
     .invisible-only      ,
     .invisible-only-md   ,
     .invisible-only-lg   ,
@@ -156,6 +177,7 @@
 @media screen and (min-width: @screenMediumDevice){
 
     .grid { width: @layoutMediumDevice; }
+    .grid-none-md { width: auto; }
 
     // #Landscape Mutate - change and adapt cols
     // ======================================================================================================
@@ -190,7 +212,7 @@
         .grid{box-shadow: 0 0 0 10px rgba(255,255,0,0.2);}
     }
 
-} 
+}
 }
 .responsive-md();
 
@@ -198,6 +220,7 @@
 @media screen and (min-width: @screenLargeDevice) {
 
     .grid{ width: @layoutLargeDevice; }
+    .grid-none-lg { width: auto; }
 
     .__generateGridResponsive(@grids, lg);
 

@@ -20,7 +20,7 @@
 // ================================
 
 // Type
-// -------------------------------- 
+// --------------------------------
 @baseFontFamily: "Open Sans","Segoe UI", Segoe, Candara, Frutiger, "Frutiger Linotype", Helvetica, Arial, sans-serif;
 
 @baseFontSize  : 14px;
@@ -33,7 +33,7 @@
 
 
 // Margins
-// -------------------------------- 
+// --------------------------------
 
 @hSpacing      : 1.414em 0 0.5em;  //headline separation;
 @pSpacing      : 1em;    //paragraph separation;
@@ -42,21 +42,30 @@
 
 
 // Colors
-// -------------------------------- 
+// --------------------------------
 
 @baseFontColor  : #333;    //grey
 @subFontColor   : #999;    //lightgrey
 @altFontColor   : #fff;    //white
 @linkFontColor  : #0063ff; //blue
 
-@brandDefault   : #ecf0f1; //grey
-@brandDanger    : #c0392b; //red
-@brandWarning   : #f39c12; //yellow
-@brandInfo      : #1abc9c; //cyan
-@brandSuccess   : #27ae60; //green
-@brandPrimary   : #3498db; //blue
-@brandAlt       : #8e44ad; //violet
-@brandInverse   : #2c3e50; //black
+@colorGrey      : #ecf0f1; //grey
+@colorRed       : #c0392b; //red
+@colorYellow    : #f39c12; //yellow
+@colorCyan      : #1abc9c; //cyan
+@colorGreen     : #27ae60; //green
+@colorBlue      : #3498db; //blue
+@colorViolet    : #8e44ad; //violet
+@colorBlack     : #2c3e50; //black
+
+@brandDefault   : @colorGrey;   //grey
+@brandDanger    : @colorRed;    //red
+@brandWarning   : @colorYellow; //yellow
+@brandInfo      : @colorCyan;   //cyan
+@brandSuccess   : @colorGreen;  //green
+@brandPrimary   : @colorBlue;   //blue
+@brandAlt       : @colorViolet; //violet
+@brandInverse   : @colorBlack;  //black
 
 @inputDangerBorder  : @brandDanger;  //red
 @inputWarningBorder : @brandWarning; //yellow
@@ -85,14 +94,14 @@
 @elemSpacing : 0.5em;     // 4
 @elemIndent  : 1em;       // 5
 @elemBlock   : 0.5em 1em; // 6
-@elemRadius  : 3px;       // 
+@elemRadius  : 3px;       //
 
 
 
 // - #Lists
 // --------------------------------------------------
 // ┌ 5 ┬─────── 100% ────────┐
-//      ##################### ┐ 
+//      ##################### ┐
 //                            4
 //                            ┘
 
@@ -104,7 +113,7 @@
 // - #Block
 // --------------------------------------------------
 // ┌─── 6 ────┐
-// ┌──────────┐ ┐ 
+// ┌──────────┐ ┐
 // │  button  │  6
 // └──────────┘ ┘
 //
@@ -114,22 +123,22 @@
 @btnRadius       : @elemRadius;
 
 // - #Complex
-// -------------------------------- 
+// --------------------------------
 // Sets the width of the label on .form-horizontal;
-// 1- @labelwidth 
+// 1- @labelwidth
 // 2- @labelSpan
 // 3- @inputPadding
 // 4- @inputSpacing
 //
 // ┌───── 1 ─────┬ 2 ┬───────── 100% ─────────┐
-//                   ┌────────────────────────┐ ┐ 
+//                   ┌────────────────────────┐ ┐
 //          Label    │ input                  │  3
 //                   └────────────────────────┘ ┤
 //                                               4
 //                                              ┘
 
 // - #Forms
-// -------------------------------- 
+// --------------------------------
 
 @labelWidth      : @elemWidth;
 @labelSpan       : @elemSpan;
@@ -140,7 +149,7 @@
 
 
 // -#Tables
-// -------------------------------- 
+// --------------------------------
 @tableBgHead     : @brandDefault;
 @tableBorder     : 1px solid lighten(@subFontColor, 20%);
 @tablePadding    : @elemPadding;
@@ -149,14 +158,14 @@
 
 
 // - #Media
-// -------------------------------- 
+// --------------------------------
 @mediaSpan       : @elemSpan;
 
 
 
 
 // - #Definition lists
-// -------------------------------- 
+// --------------------------------
 @defWidth        : @elemWidth;
 @defSpan         : @elemSpan;
 @defSpacing      : @elemSpacing;
@@ -164,19 +173,19 @@
 
 
 // - #Layout
-// ================================ 
+// ================================
 @gutter  : 10px;
 @grids   : "triad:3", "quad:4";
- 
+
 //grids separated by comma
 //Example: @grids: "cols:12";
 
 
 
 // - #Responsive
-// -------------------------------- 
+// --------------------------------
 
-@screenSmallDevice   : 768px; 
+@screenSmallDevice   : 768px;
 @screenMediumDevice  : 1024px;
 @screenLargeDevice   : 1240px;
 

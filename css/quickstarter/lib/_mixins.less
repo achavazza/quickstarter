@@ -6,7 +6,7 @@
 // # Mixins
 
 // #Clearfix
-// ================================ 
+// ================================
 .clearfix(){
     &:after{
         clear:both;
@@ -16,7 +16,7 @@
         line-height:0;
         visibility:hidden;
         width:0;
-        height:0; 
+        height:0;
     }
     * html &,
     *:first-child+html &{
@@ -26,7 +26,7 @@
 
 
 // #For
-// ================================ 
+// ================================
 
 .for(@i, @n) {.-each(@i)}
 .for(@n)     when (isnumber(@n)) {.for(1, @n)}
@@ -39,32 +39,40 @@
 .for-impl_(@i) when (@i > 0)    {.-each(extract(@array, @i))}
 
 // #Constructor
-// ================================ 
+// ================================
 
 
 .__constructor (@qUnit, @t){
     @i: @t;
     .for(@t); .-each(@i){
-      .@{qUnit}-@{i}{ width: 100% * (@i / @t)}   
-    } 
-} 
+      .@{qUnit}-@{i}{ width: 100% * (@i / @t)}
+    }
+}
 .__constructor (@qUnit, @t, @display) when (iskeyword(@display)){
     @i: @t;
     .for(@t); .-each(@i){
-      .@{qUnit}-@{i}-@{display}{ width: 100% * (@i / @t)}   
-    }  
-} 
+      .@{qUnit}-@{i}-@{display}{ width: 100% * (@i / @t)}
+    }
+}
+
 .__constructorProp (@qUnit, @t, @prop, @property){
     @i: @t;
     .for(@t); .-each(@i){
       .@{prop}-@{i}[class*="@{qUnit}-"] {@{property}: 100% * (@i / @t)}
-    } 
+    }
 }
 .__constructorProp (@qUnit, @t, @prop, @property, @display) when (iskeyword(@display)){
     @i: @t;
     .for(@t); .-each(@i){
       .@{prop}-@{i}-@{display}[class*="@{qUnit}-"] {@{property}: 100% * (@i / @t)}
-    }  
+    }
+}
+.__constructorNone (@qUnit, @display) when (iskeyword(@display)){
+    .@{qUnit}-none-@{display}{
+        width  : auto;
+        display: block;
+        float  : none;
+    }
 }
 
 .__generateGrid(@grids) {
@@ -94,6 +102,7 @@
         .__constructorProp (@name, @number, suffix, margin-right, @device); //deprecated
         .__constructorProp (@name, @number, push  , left        , @device);
         .__constructorProp (@name, @number, pull  , right       , @device);
+        .__constructorNone (@name, @device);
     }
 }
 
@@ -148,15 +157,15 @@
   }
   .debug(@var) when (@mixin = debug){
     [class*="@{name}-"]{
-      background: rgba(255,0,0,0.1) !important; 
-        //box-shadow: 0 0 transparent , 
+      background: rgba(255,0,0,0.1) !important;
+        //box-shadow: 0 0 transparent ,
         //            0 0 transparent !important;
     }
   }
   .debugsm(@var) when (@mixin = debugsm){
     [class*="@{name}-"]{
-      background: rgba(255,0,0,0.1) !important; 
-      box-shadow: @gutter 0 rgba(255, 0, 0, 0.2) inset, 
+      background: rgba(255,0,0,0.1) !important;
+      box-shadow: @gutter 0 rgba(255, 0, 0, 0.2) inset,
                  -@gutter 0 rgba(255, 0, 0, 0.2) inset  !important;
       background-clip: content-box !important;
     }
@@ -179,7 +188,7 @@
 
 
 // #Mixins
-// ================================ 
+// ================================
 
 // Gradient generator
 // --------------------------------
@@ -288,7 +297,7 @@
 
 .boxFoot(@pdBox){
     margin: 0 -@pdBox -@pdBox;
-    padding: @pdBox; 
+    padding: @pdBox;
 }
 
 .boxContent(@pdBox){

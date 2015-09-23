@@ -6,8 +6,7 @@
 // #Button
 // ======================================================================================================
 
-.btn {
-    
+.btnSetup(){
     // Structure
     display: inline-block;
     zoom: 1;
@@ -20,31 +19,34 @@
     text-align: center;
     text-decoration: none;
     cursor: pointer;
-    
+
     .user-select();
 
     *display: inline;   // IE 6/7
     *font-size: 90%;    // IE 6/7 - To reduce IE's oversized button text
-    *overflow: visible; // IE 6/7 - Because of IE's overly large left/right padding on buttons 
+    *overflow: visible; // IE 6/7 - Because of IE's overly large left/right padding on buttons
 
 
     // Style
     padding: @btnPadding;
     //color: #333;
     border: 1px solid #B7B7B7;
-    border-color: rgba(0, 0, 0, .1) 
-                  rgba(0, 0, 0, .1) 
+    border-color: rgba(0, 0, 0, .1)
+                  rgba(0, 0, 0, .1)
                   rgba(0, 0, 0, .25);
 
     border-radius: 3px;
+
     //text-shadow: 0 1px 0 rgba(255,255,255,.5);
-    .gradient(lighten(@brandDefault ,5%),darken(@brandDefault ,5%));
-    .contrast(@brandDefault);
+    .btnStyle(@brandDefault);
+    //.gradient(lighten(@brandDefault ,5%),darken(@brandDefault ,5%));
+    //.contrast(@brandDefault);
+
 
     &-hover,
     &:hover,
     &:focus{
-        background-image: none;
+        background-image: none !important;
     }
 
     &:focus {
@@ -65,7 +67,7 @@
         background-image: none;
         opacity: 0.40;
         cursor: not-allowed;
-        box-shadow: none;    
+        box-shadow: none;
 
         &:hover,
         &:focus,
@@ -73,12 +75,17 @@
             &:extend(.btn-disabled);
         }
     }
+}
+.btnStyle(@btnColor){
+    .gradient(
+        lighten(@btnColor,5%),
+        darken(@btnColor,5%)
+    );
+    .contrast(darken(@btnColor, 5%));
+}
 
-    &-hidden {
-        display: none;
-    }
-
-    &-full { width: 100%; }
+.btn {
+    .btnSetup();
 }
 
 
@@ -86,26 +93,27 @@
     input[type="image"],
     input[type="reset"],
     input[type="submit"]{
-        &:extend(.btn);
+        .btnSetup();
+        //&:extend(.btn);
     }
 }
 
 // #Button-styles
 // ======================================================================================================
 .btn{
-    &-default { .gradient(lighten(@brandDefault,5%),darken(@brandDefault,5%)); .contrast(darken(@brandDefault, 5%))}
+    &-default { .btnStyle(@brandDefault)}
 
     &-error,
-    &-danger  { .gradient(lighten(@brandDanger ,5%),darken(@brandDanger ,5%)); .contrast(darken(@brandDanger , 5%))}
-    &-warning { .gradient(lighten(@brandWarning,5%),darken(@brandWarning,5%)); .contrast(darken(@brandWarning, 5%))}
-    &-info    { .gradient(lighten(@brandInfo   ,5%),darken(@brandInfo   ,5%)); .contrast(darken(@brandInfo   , 5%))}
-    &-success { .gradient(lighten(@brandSuccess,5%),darken(@brandSuccess,5%)); .contrast(darken(@brandSuccess, 5%))}
-    &-primary { .gradient(lighten(@brandPrimary,5%),darken(@brandPrimary,5%)); .contrast(darken(@brandPrimary, 5%))}
-    &-alt     { .gradient(lighten(@brandAlt    ,5%),darken(@brandAlt    ,5%)); .contrast(darken(@brandAlt    , 5%))}
-    &-inverse { .gradient(lighten(@brandInverse,5%),darken(@brandInverse,5%)); .contrast(darken(@brandInverse, 5%))}
+    &-danger  { .btnStyle(@brandDanger )}
+    &-warning { .btnStyle(@brandWarning)}
+    &-info    { .btnStyle(@brandInfo   )}
+    &-success { .btnStyle(@brandSuccess)}
+    &-primary { .btnStyle(@brandPrimary)}
+    &-alt     { .btnStyle(@brandAlt    )}
+    &-inverse { .btnStyle(@brandInverse)}
     &-link,
     &-link:hover,
-    &-link:active { 
+    &-link:active {
         padding: 0;
         background: none;
         border: 0 none;
