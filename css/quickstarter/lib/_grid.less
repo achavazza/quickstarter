@@ -132,15 +132,16 @@
         }
         //.__generateSetup(@grids, debugsm);
     }
+
+
 }
 
 .responsive-sm() when (isnumber(@screenSmallDevice)){
 @media screen and (min-width: @screenSmallDevice){
 
     .grid { width: @layoutSmallDevice; }
-    /*
+
     .grid-none-sm { width: auto; }
-    */
 
     .__generateGridResponsive(@grids, sm);
 
@@ -177,6 +178,8 @@
 @media screen and (min-width: @screenMediumDevice){
 
     .grid { width: @layoutMediumDevice; }
+
+    .grid-none-sm,
     .grid-none-md { width: auto; }
 
     // #Landscape Mutate - change and adapt cols
@@ -220,6 +223,9 @@
 @media screen and (min-width: @screenLargeDevice) {
 
     .grid{ width: @layoutLargeDevice; }
+
+    .grid-none-sm,
+    .grid-none-md,
     .grid-none-lg { width: auto; }
 
     .__generateGridResponsive(@grids, lg);
